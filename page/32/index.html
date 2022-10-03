@@ -1,0 +1,1408 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+    <meta name="description" content="匆忙世间的闲人。" />
+
+
+
+	<meta name="keywords" content="Hexo,next" />
+
+
+
+    <link rel="alternate" href="/atom.xml" title="小默的博客" type="application/atom+xml" />
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?99006bde90fd9672ff2dd2ebcd1aaf7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <title> 小默的博客 </title>
+</head>
+
+<body>
+  <div class="container one-column 
+   page-home 
+">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">小默的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    <!--增加swiftype搜索功能-->
+    <form class="menu-item menu-item-">
+      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"  />
+    </form>
+    
+    <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+    _st('install','q3oXszmqgzDdD3RJmGAt');
+    </script>
+    <!--增加swiftype搜索功能end-->
+    
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+  <div id="posts" class="posts-expand">
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/25/设计模式学习5——备忘录模式/">
+                设计模式学习（五）——备忘录模式
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-25
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/25/设计模式学习5——备忘录模式/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/25/设计模式学习5——备忘录模式/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="备忘录模式定义">备忘录模式定义</h1><p><strong>备忘录模式（Memento Pattern）</strong>确保在不破坏封装的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，这样可以在以后将对象恢复到原先保存的状态。</p>
+<p>备忘录模式有两个目标：</p>
+<ul>
+<li><p>储存系统关键对象的重要状态；</p>
+</li>
+<li><p>维护关键对象的封装。</p>
+</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/25/设计模式学习5——备忘录模式/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/"> #设计模式 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/25/设计模式学习4——解释器模式/">
+                设计模式学习（四）——解释器模式
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-25
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/25/设计模式学习4——解释器模式/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/25/设计模式学习4——解释器模式/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="解释器模式定义">解释器模式定义</h1><p><strong>解释器模式（Interpreter Pattern）</strong>描述了如何为语言定义一个文法，如何在该语言中表示一个句子，以及如何解释这些句子。这里的语言意思是使用规定格式和语法的代码。</p>
+<p>简单说来，解释器模式用来为语言创建解释器。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/25/设计模式学习4——解释器模式/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/"> #设计模式 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/25/设计模式学习3——访问者模式/">
+                设计模式学习（三）——访问者模式
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-24
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/25/设计模式学习3——访问者模式/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/25/设计模式学习3——访问者模式/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="访问者模式定义及优缺点">访问者模式定义及优缺点</h1><p><strong>访问者模式（Visitor Pattern）</strong>用于表示一个作用于某对象结构中的各元素的操作，它使得用户可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</p>
+<p>访问者模式使得对对象的操作变得更为灵活，它将数据结构和作用于结构上的操作之间的耦合解脱开，使得增加一个新的访问者类变得很方便。</p>
+<h2 id="访问者模式的优点：">访问者模式的优点：</h2><ul>
+<li>允许你对组合结构加入新的操作，而无需改变结构本身；</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/25/设计模式学习3——访问者模式/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/"> #设计模式 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/24/设计模式学习2——策略模式/">
+                设计模式学习（二）——策略模式
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-24
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/24/设计模式学习2——策略模式/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/24/设计模式学习2——策略模式/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="策略模式定义">策略模式定义</h1><p><strong>策略模式（Strategy Pattern）</strong>中定义一系列算法，并将每一个算法封装起来，使它们可以相互替换，策略模式让算法独立于使用它的客户而变化。</p>
+<p>有许多算法可以实现同一功能，比如存在多种搜索算法、排序算法等。如果将这些算法硬编码在程序中，则会导致系统变得庞大而难以维护，在增加新的算法或改变现有算法时也将变得十分困难。为了解决类似问题，可以定义一些独立的类来封装不同的算法，每一个封装算法的类成为<strong>策略</strong>。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/24/设计模式学习2——策略模式/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/"> #设计模式 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/23/滑稽的大雨/">
+                滑稽的大雨
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-23
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/个人随笔/">个人随笔</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/23/滑稽的大雨/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/23/滑稽的大雨/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p><strong>（一）</strong></p>
+<p>记得唐代诗人李约的《观祈雨》是这么写的：“桑条无叶土生烟，箫管迎龙水庙前。朱门几处看歌舞，犹恐春阴咽管弦。”这是一首悯农诗，写观看春日祈雨的感慨，前两句写农民春旱祈雨的场面，后两句写朱门看歌舞的情景。同样是面对久旱无雨，两种不同生活的描绘，足见当时的阶级对立和贫富悬殊。农民们由于天旱而忧虑一年生计，豪门权贵却日夜笙歌，犹恐天阴下雨使乐器受潮。</p>
+<p>有时候很佩服古人，三言两语就能把眼前所见之景和想要表达的意思抒发出来，言简意赅，意犹未尽。我喜欢这样简短的表达，留有空白，引人思索。我厌烦喋喋不休、长篇大论的赘述，把简单变为复杂，让人听得云里雾里。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/23/滑稽的大雨/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/生活/"> #生活 </a>
+          
+            <a href="/tags/看见/"> #看见 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/22/设计模式学习1——命令模式/">
+                设计模式学习（一）——命令模式
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-22
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/22/设计模式学习1——命令模式/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/22/设计模式学习1——命令模式/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="命令模式定义">命令模式定义</h1><p><strong>命令模式（Command Pattern）</strong>将一个 [ 请求 | 命令 | 调用方法 ] 封装为一个对象，从而可用不同的 [ 请求 | 命令 | 调用方法 ] 对客户进行参数化，对 [ 请求 | 命令 | 调用方法 ] 排队或记录其日志，以及支持可撤销的操作。</p>
+<p>命令模式可以对发送者（Sender）和接收者（Receiver）<strong>完全解耦（Decoupling）</strong>。<strong>发送者</strong>是请求操作（发出命令）的对象，<strong>接收者</strong>是接收请求（接收命令）并执行某相应操作的对象。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/22/设计模式学习1——命令模式/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/"> #设计模式 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/22/16PF心理测试结果/">
+                16PF心理测试结果
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-21
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/心理学/">心理学</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/22/16PF心理测试结果/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/22/16PF心理测试结果/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="16PF简介">16PF简介</h2><p>今天下午看Coursera上南京大学的公开课《心理学与生活》的第五讲“人格与动机”时，听到“16PF人格测试”，于是晚上坐下来测试了一遍。</p>
+<p><strong>卡特尔16PF测验</strong>由美国伊利诺州立大学人格及能力研究所雷蒙德·卡特尔教授编制。卡氏采用系统观察法、科学实验法以及因素分析统计法，经过三十年的研究确定了十六种人格特质，并据此编制了测验量表。卡特尔认为“根源特质”是人类的潜在、稳定的人格特征，是人格测验应把握的实质。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/22/16PF心理测试结果/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/心理测试/"> #心理测试 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/18/《中国哲学简史》笔记（一）/">
+                《中国哲学简史》笔记（一）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-18
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/读书笔记/">读书笔记</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/18/《中国哲学简史》笔记（一）/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/18/《中国哲学简史》笔记（一）/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>按照某些西方哲学家的看法，人要思想，首先要弄清楚人能够思考什么；这就是说，在对人生进行思考之前，我们先要对思想进行思考。</p>
+<hr>
+<p>我们如果把《老子》书中提到的概念列举出来，重述一遍，可能用上五万字或五十万字，它可能帮助读者了解《老子》一书的含义，但它本身将成为另一本书，而永不可能代替《老子》的原著。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/18/《中国哲学简史》笔记（一）/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/哲学/"> #哲学 </a>
+          
+            <a href="/tags/阅读/"> #阅读 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/17/周末掠影/">
+                周末掠影
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-17
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/美图/">美图</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/17/周末掠影/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/17/周末掠影/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>今天，梦梦说要装扮成一名游客逛校园，出发前，她是这个样子的。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/e175f594627470a132974a839f7428c6.jpg" alt=""></p>
+<p>为了搭配协调，我本来也想着要戴副墨镜，虽然今天出门前看起来是阴天，没什么太阳。可惜后来翻箱倒柜却没有找到墨镜，哎，于是只好……把她的眼镜借来拍张照！</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/17/周末掠影/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/幸福/"> #幸福 </a>
+          
+            <a href="/tags/生活/"> #生活 </a>
+          
+            <a href="/tags/高尔夫/"> #高尔夫 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/16/swirl学习14/">
+                swirl学习之十四——Dates and Times
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-16
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/16/swirl学习14/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/16/swirl学习14/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">| Please choose a course, <span class="keyword">or</span> type <span class="number">0</span> <span class="keyword">to</span> <span class="keyword">exit</span> swirl.</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: R Programming</span><br><span class="line"><span class="number">2</span>: <span class="keyword">Take</span> <span class="keyword">me</span> <span class="keyword">to</span> the swirl course repository!</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">1</span></span><br><span class="line"></span><br><span class="line">| Please choose a lesson, <span class="keyword">or</span> type <span class="number">0</span> <span class="keyword">to</span> <span class="keyword">return</span> <span class="keyword">to</span> course menu.</span><br><span class="line"></span><br><span class="line"> <span class="number">1</span>: Basic Building Blocks      <span class="number">2</span>: Workspace <span class="keyword">and</span> Files     </span><br><span class="line"> <span class="number">3</span>: Sequences <span class="keyword">of</span> Numbers       <span class="number">4</span>: Vectors                 </span><br><span class="line"> <span class="number">5</span>: Missing Values             <span class="number">6</span>: Subsetting Vectors      </span><br><span class="line"> <span class="number">7</span>: Matrices <span class="keyword">and</span> Data Frames   <span class="number">8</span>: Logic                   </span><br><span class="line"> <span class="number">9</span>: Functions                 <span class="number">10</span>: lapply <span class="keyword">and</span> sapply       </span><br><span class="line"><span class="number">11</span>: vapply <span class="keyword">and</span> tapply         <span class="number">12</span>: Looking at Data         </span><br><span class="line"><span class="number">13</span>: Simulation                <span class="number">14</span>: Dates <span class="keyword">and</span> Times         </span><br><span class="line"><span class="number">15</span>: Base Graphics             </span><br><span class="line"></span><br><span class="line">Selection: <span class="number">14</span></span><br><span class="line"></span><br><span class="line">  |                                                    |   <span class="number">0</span>%</span><br><span class="line"></span><br><span class="line">| R has a special way <span class="keyword">of</span> representing dates <span class="keyword">and</span> times, which</span><br><span class="line">| can be helpful <span class="keyword">if</span> you<span class="comment">'re working with data that show how</span></span><br><span class="line">| something changes over time (i.e. time-series data) <span class="keyword">or</span> <span class="keyword">if</span></span><br><span class="line">| your data contain some other temporal information, <span class="keyword">like</span></span><br><span class="line">| dates <span class="keyword">of</span> birth.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=                                                   |   <span class="number">3</span>%</span><br><span class="line"></span><br><span class="line">| Dates are represented <span class="keyword">by</span> the <span class="comment">'Date' class and times are</span></span><br><span class="line">| represented <span class="keyword">by</span> the <span class="comment">'POSIXct' and 'POSIXlt' classes.</span></span><br><span class="line">| Internally, dates are stored <span class="keyword">as</span> the number <span class="keyword">of</span> days since</span><br><span class="line">| <span class="number">1970</span>-<span class="number">01</span>-<span class="number">01</span> <span class="keyword">and</span> times are stored <span class="keyword">as</span> either the number <span class="keyword">of</span></span><br><span class="line">| seconds since <span class="number">1970</span>-<span class="number">01</span>-<span class="number">01</span> (<span class="keyword">for</span> <span class="comment">'POSIXct') or a list of</span></span><br><span class="line">| seconds, minutes, hours, etc. (<span class="keyword">for</span> <span class="comment">'POSIXlt').</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===                                                 |   <span class="number">6</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s start by using d1 <span class="xmlDocTag">&lt;- Sys.Date() to get the current</span><br><span class="line">| date and store it in the variable d1. (That's the letter</span><br><span class="line">| 'd' and the number 1.)</span><br><span class="line"></span><br><span class="line">&gt;</span> d1<span class="xmlDocTag">&lt;-Sys.Date()</span><br><span class="line"></span><br><span class="line">| That's a job well done!</span><br><span class="line"></span><br><span class="line">  |====                                                |   9%</span><br><span class="line"></span><br><span class="line">| Use the class() function to confirm d1 is a Date object.</span><br><span class="line"></span><br><span class="line">&gt;</span> class(d1)</span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"Date"</span></span><br><span class="line"></span><br><span class="line">| You nailed it! Good job!</span><br><span class="line"></span><br><span class="line">  |======                                              |  <span class="number">11</span>%</span><br><span class="line"></span><br><span class="line">| We can use the unclass() <span class="keyword">function</span> <span class="keyword">to</span> see what d1 looks <span class="keyword">like</span></span><br><span class="line">| internally. <span class="keyword">Try</span> it out.</span><br><span class="line"></span><br><span class="line">&gt; unclass(d1)</span><br><span class="line">[<span class="number">1</span>] <span class="number">16571</span></span><br><span class="line"></span><br><span class="line">| You got it!</span><br><span class="line"></span><br><span class="line">  |=======                                             |  <span class="number">14</span>%</span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s the exact number of days since 1970-01-01!</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=========                                           |  <span class="number">17</span>%</span><br><span class="line"></span><br><span class="line">| However, <span class="keyword">if</span> you print d1 <span class="keyword">to</span> the console, you<span class="comment">'ll get today's</span></span><br><span class="line">| <span class="built_in">date</span> -- YEAR-MONTH-DAY. Give it a <span class="keyword">try</span>.</span><br><span class="line"></span><br><span class="line">&gt; d1</span><br><span class="line">[<span class="number">1</span>] <span class="string">"2015-05-16"</span></span><br><span class="line"></span><br><span class="line">| Keep working <span class="keyword">like</span> that <span class="keyword">and</span> you<span class="comment">'ll get there!</span></span><br><span class="line"></span><br><span class="line">  |==========                                          |  <span class="number">20</span>%</span><br><span class="line"></span><br><span class="line">| What <span class="keyword">if</span> we need <span class="keyword">to</span> reference a <span class="built_in">date</span> prior <span class="keyword">to</span> <span class="number">1970</span>-<span class="number">01</span>-<span class="number">01</span>?</span><br><span class="line">| Create a variable d2 containing <span class="keyword">as</span>.<span class="built_in">Date</span>(<span class="string">"1969-01-01"</span>).</span><br><span class="line"></span><br><span class="line">&gt; d2&lt;-<span class="keyword">as</span>.<span class="built_in">Date</span>(<span class="string">"1969-01-01"</span>)</span><br><span class="line"></span><br><span class="line">| You nailed it! Good job!</span><br><span class="line"></span><br><span class="line">  |============                                        |  <span class="number">23</span>%</span><br><span class="line"></span><br><span class="line">| Now use unclass() again <span class="keyword">to</span> see what d2 looks <span class="keyword">like</span></span><br><span class="line">| internally.</span><br><span class="line"></span><br><span class="line">&gt; unclass(d2)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">365</span></span><br><span class="line"></span><br><span class="line">| You are amazing!</span><br><span class="line"></span><br><span class="line">  |=============                                       |  <span class="number">26</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">As</span> you may have anticipated, you <span class="keyword">get</span> a negative number. <span class="keyword">In</span></span><br><span class="line">| this <span class="keyword">case</span>, it<span class="comment">'s -365, since 1969-01-01 is exactly one</span></span><br><span class="line">| calendar year (i.e. <span class="number">365</span> days) BEFORE <span class="number">1970</span>-<span class="number">01</span>-<span class="number">01.</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===============                                     |  <span class="number">29</span>%</span><br><span class="line"></span><br><span class="line">| Now, <span class="keyword">let</span><span class="comment">'s take a look at how R stores times. You can</span></span><br><span class="line">| access the current <span class="built_in">date</span> <span class="keyword">and</span> time <span class="keyword">using</span> the Sys.time()</span><br><span class="line">| <span class="keyword">function</span> <span class="keyword">with</span> no arguments. <span class="keyword">Do</span> this <span class="keyword">and</span> store the result <span class="keyword">in</span></span><br><span class="line">| a variable called t1.</span><br><span class="line"></span><br><span class="line">&gt; t1&lt;-Sys.time()</span><br><span class="line"></span><br><span class="line">| All that hard work <span class="keyword">is</span> paying <span class="keyword">off</span>!</span><br><span class="line"></span><br><span class="line">  |================                                    |  <span class="number">31</span>%</span><br><span class="line"></span><br><span class="line">| View the contents <span class="keyword">of</span> t1.</span><br><span class="line"></span><br><span class="line">&gt; t1</span><br><span class="line">[<span class="number">1</span>] <span class="string">"2015-05-16 11:08:48 CST"</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s correct!</span></span><br><span class="line"></span><br><span class="line">  |==================                                  |  <span class="number">34</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">And</span> check the <span class="keyword">class</span>() <span class="keyword">of</span> t1.</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">class</span>(t1)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"POSIXct"</span> <span class="string">"POSIXt"</span> </span><br><span class="line"></span><br><span class="line">| You<span class="comment">'re the best!</span></span><br><span class="line"></span><br><span class="line">  |===================                                 |  <span class="number">37</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">As</span> mentioned earlier, POSIXct <span class="keyword">is</span> just one <span class="keyword">of</span> two ways that</span><br><span class="line">| R represents time information. (You can ignore the second</span><br><span class="line">| value above, POSIXt, which just functions <span class="keyword">as</span> a common</span><br><span class="line">| language between POSIXct <span class="keyword">and</span> POSIXlt.) Use unclass() <span class="keyword">to</span> see</span><br><span class="line">| what t1 looks <span class="keyword">like</span> internally -- the (large) number <span class="keyword">of</span></span><br><span class="line">| seconds since the beginning <span class="keyword">of</span> <span class="number">1970.</span></span><br><span class="line"></span><br><span class="line">&gt; unclass(t1)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1431745729</span></span><br><span class="line"></span><br><span class="line">| Excellent work!</span><br><span class="line"></span><br><span class="line">  |=====================                               |  <span class="number">40</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">By</span> <span class="keyword">default</span>, Sys.time() returns an <span class="built_in">object</span> <span class="keyword">of</span> <span class="keyword">class</span> POSIXct,</span><br><span class="line">| but we can coerce the result <span class="keyword">to</span> POSIXlt <span class="keyword">with</span></span><br><span class="line">| <span class="keyword">as</span>.POSIXlt(Sys.time()). Give it a <span class="keyword">try</span> <span class="keyword">and</span> store the result</span><br><span class="line">| <span class="keyword">in</span> t2.</span><br><span class="line"></span><br><span class="line">&gt; t2&lt;-<span class="keyword">as</span>.POSIXlt(Sys.time())</span><br><span class="line"></span><br><span class="line">| Excellent job!</span><br><span class="line"></span><br><span class="line">  |======================                              |  <span class="number">43</span>%</span><br><span class="line"></span><br><span class="line">| Check the <span class="keyword">class</span> <span class="keyword">of</span> t2.</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">class</span>(t2)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"POSIXlt"</span> <span class="string">"POSIXt"</span> </span><br><span class="line"></span><br><span class="line">| Keep working <span class="keyword">like</span> that <span class="keyword">and</span> you<span class="comment">'ll get there!</span></span><br><span class="line"></span><br><span class="line">  |========================                            |  <span class="number">46</span>%</span><br><span class="line"></span><br><span class="line">| Now view its contents.</span><br><span class="line"></span><br><span class="line">&gt; t2</span><br><span class="line">[<span class="number">1</span>] <span class="string">"2015-05-16 11:12:57 CST"</span></span><br><span class="line"></span><br><span class="line">| Nice work!</span><br><span class="line"></span><br><span class="line">  |=========================                           |  <span class="number">49</span>%</span><br><span class="line"></span><br><span class="line">| The printed format <span class="keyword">of</span> t2 <span class="keyword">is</span> identical <span class="keyword">to</span> that <span class="keyword">of</span> t1. Now</span><br><span class="line">| unclass() t2 <span class="keyword">to</span> see how it <span class="keyword">is</span> different internally.</span><br><span class="line"></span><br><span class="line">&gt; unclass(t2)</span><br><span class="line">$sec</span><br><span class="line">[<span class="number">1</span>] <span class="number">57.47574</span></span><br><span class="line"></span><br><span class="line">$min</span><br><span class="line">[<span class="number">1</span>] <span class="number">12</span></span><br><span class="line"></span><br><span class="line">$hour</span><br><span class="line">[<span class="number">1</span>] <span class="number">11</span></span><br><span class="line"></span><br><span class="line">$mday</span><br><span class="line">[<span class="number">1</span>] <span class="number">16</span></span><br><span class="line"></span><br><span class="line">$mon</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span></span><br><span class="line"></span><br><span class="line">$year</span><br><span class="line">[<span class="number">1</span>] <span class="number">115</span></span><br><span class="line"></span><br><span class="line">$wday</span><br><span class="line">[<span class="number">1</span>] <span class="number">6</span></span><br><span class="line"></span><br><span class="line">$yday</span><br><span class="line">[<span class="number">1</span>] <span class="number">135</span></span><br><span class="line"></span><br><span class="line">$isdst</span><br><span class="line">[<span class="number">1</span>] <span class="number">0</span></span><br><span class="line"></span><br><span class="line">$zone</span><br><span class="line">[<span class="number">1</span>] <span class="string">"CST"</span></span><br><span class="line"></span><br><span class="line">$gmtoff</span><br><span class="line">[<span class="number">1</span>] <span class="number">28800</span></span><br><span class="line"></span><br><span class="line">attr(,<span class="string">"tzone"</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">""</span>    <span class="string">"CST"</span> <span class="string">"CDT"</span></span><br><span class="line"></span><br><span class="line">| Nice work!</span><br><span class="line"></span><br><span class="line">  |===========================                         |  <span class="number">51</span>%</span><br><span class="line"></span><br><span class="line">| t2, <span class="keyword">like</span> all POSIXlt objects, <span class="keyword">is</span> just a list <span class="keyword">of</span> values that</span><br><span class="line">| make up the <span class="built_in">date</span> <span class="keyword">and</span> time. Use str(unclass(t2)) <span class="keyword">to</span> have a</span><br><span class="line">| more compact view.</span><br><span class="line"></span><br><span class="line">&gt; str(unclass(t2))</span><br><span class="line">List <span class="keyword">of</span> <span class="number">11</span></span><br><span class="line"> $ sec   : num <span class="number">57.5</span></span><br><span class="line"> $ min   : int <span class="number">12</span></span><br><span class="line"> $ hour  : int <span class="number">11</span></span><br><span class="line"> $ mday  : int <span class="number">16</span></span><br><span class="line"> $ mon   : int <span class="number">4</span></span><br><span class="line"> $ year  : int <span class="number">115</span></span><br><span class="line"> $ wday  : int <span class="number">6</span></span><br><span class="line"> $ yday  : int <span class="number">135</span></span><br><span class="line"> $ isdst : int <span class="number">0</span></span><br><span class="line"> $ zone  : chr <span class="string">"CST"</span></span><br><span class="line"> $ gmtoff: int <span class="number">28800</span></span><br><span class="line"> - attr(*, <span class="string">"tzone"</span>)= chr [<span class="number">1</span>:<span class="number">3</span>] <span class="string">""</span> <span class="string">"CST"</span> <span class="string">"CDT"</span></span><br><span class="line"></span><br><span class="line">| Great job!</span><br><span class="line"></span><br><span class="line">  |============================                        |  <span class="number">54</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">If</span>, <span class="keyword">for</span> example, we want just the minutes <span class="keyword">from</span> the time</span><br><span class="line">| stored <span class="keyword">in</span> t2, we can access them <span class="keyword">with</span> t2$min. Give it a</span><br><span class="line">| <span class="keyword">try</span>.</span><br><span class="line"></span><br><span class="line">&gt; t2$min</span><br><span class="line">[<span class="number">1</span>] <span class="number">12</span></span><br><span class="line"></span><br><span class="line">| Keep up the great work!</span><br><span class="line"></span><br><span class="line">  |==============================                      |  <span class="number">57</span>%</span><br><span class="line"></span><br><span class="line">| Now that we have explored all three types <span class="keyword">of</span> <span class="built_in">date</span> <span class="keyword">and</span> time</span><br><span class="line">| objects, <span class="keyword">let</span><span class="comment">'s look at a few functions that extract useful</span></span><br><span class="line">| information <span class="keyword">from</span> any <span class="keyword">of</span> these objects -- weekdays(),</span><br><span class="line">| months(), <span class="keyword">and</span> quarters().</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===============================                     |  <span class="number">60</span>%</span><br><span class="line"></span><br><span class="line">| The weekdays() <span class="keyword">function</span> will <span class="keyword">return</span> the day <span class="keyword">of</span> week <span class="keyword">from</span></span><br><span class="line">| any <span class="built_in">date</span> <span class="keyword">or</span> time <span class="built_in">object</span>. <span class="keyword">Try</span> it out <span class="keyword">on</span> d1, which <span class="keyword">is</span> the</span><br><span class="line">| <span class="built_in">Date</span> <span class="built_in">object</span> that contains today<span class="comment">'s date.</span></span><br><span class="line"></span><br><span class="line">&gt; weekdays(d1)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"Saturday"</span></span><br><span class="line"></span><br><span class="line">| You got it right!</span><br><span class="line"></span><br><span class="line">  |=================================                   |  <span class="number">63</span>%</span><br><span class="line"></span><br><span class="line">| The months() <span class="keyword">function</span> also works <span class="keyword">on</span> any <span class="built_in">date</span> <span class="keyword">or</span> time</span><br><span class="line">| <span class="built_in">object</span>. <span class="keyword">Try</span> it <span class="keyword">on</span> t1, which <span class="keyword">is</span> the POSIXct <span class="built_in">object</span> that</span><br><span class="line">| contains the current time (well, it was the current time</span><br><span class="line">| <span class="keyword">when</span> you created it).</span><br><span class="line"></span><br><span class="line">&gt; months(t1)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"May"</span></span><br><span class="line"></span><br><span class="line">| Excellent work!</span><br><span class="line"></span><br><span class="line">  |==================================                  |  <span class="number">66</span>%</span><br><span class="line"></span><br><span class="line">| The quarters() <span class="keyword">function</span> returns the quarter <span class="keyword">of</span> the year</span><br><span class="line">| (Q1-Q4) <span class="keyword">from</span> any <span class="built_in">date</span> <span class="keyword">or</span> time <span class="built_in">object</span>. <span class="keyword">Try</span> it <span class="keyword">on</span> t2, which</span><br><span class="line">| <span class="keyword">is</span> the POSIXlt <span class="built_in">object</span> that contains the time at which you</span><br><span class="line">| created it.</span><br><span class="line"></span><br><span class="line">&gt; quarters(t2)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"Q2"</span></span><br><span class="line"></span><br><span class="line">| Keep up the great work!</span><br><span class="line"></span><br><span class="line">  |====================================                |  <span class="number">69</span>%</span><br><span class="line"></span><br><span class="line">| Often, the dates <span class="keyword">and</span> times <span class="keyword">in</span> a dataset will be <span class="keyword">in</span> a format</span><br><span class="line">| that R does <span class="keyword">not</span> recognize. The strptime() <span class="keyword">function</span> can be</span><br><span class="line">| helpful <span class="keyword">in</span> this situation.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=====================================               |  <span class="number">71</span>%</span><br><span class="line"></span><br><span class="line">| strptime() converts character vectors <span class="keyword">to</span> POSIXlt. <span class="keyword">In</span> that</span><br><span class="line">| sense, it <span class="keyword">is</span> similar <span class="keyword">to</span> <span class="keyword">as</span>.POSIXlt(), except that the input</span><br><span class="line">| doesn<span class="comment">'t have to be in a particular format (YYYY-MM-DD).</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=======================================             |  <span class="number">74</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">To</span> see how it works, store the following character <span class="built_in">string</span></span><br><span class="line">| <span class="keyword">in</span> a variable called t3: <span class="string">"October 17, 1986 08:24"</span> (<span class="keyword">with</span> the</span><br><span class="line">| quotes).</span><br><span class="line"></span><br><span class="line">&gt; t3&lt;-<span class="string">"October 17, 1986 08:24"</span></span><br><span class="line"></span><br><span class="line">| You nailed it! Good job!</span><br><span class="line"></span><br><span class="line">  |========================================            |  <span class="number">77</span>%</span><br><span class="line"></span><br><span class="line">| Now, use strptime(t3, <span class="string">"%B %d, %Y %H:%M"</span>) <span class="keyword">to</span> help R convert</span><br><span class="line">| our <span class="built_in">date</span>/time <span class="built_in">object</span> <span class="keyword">to</span> a format that it understands.</span><br><span class="line">| Assign the result <span class="keyword">to</span> a <span class="keyword">new</span> variable called t4. (You should</span><br><span class="line">| pull up the documentation <span class="keyword">for</span> strptime() <span class="keyword">if</span> you<span class="comment">'d like to</span></span><br><span class="line">| know more about how it works.)</span><br><span class="line"></span><br><span class="line">&gt; ?strptime</span><br><span class="line">&gt; t4&lt;-strptime(t3,<span class="string">"%B %d, %Y %H:%M"</span>)</span><br><span class="line"></span><br><span class="line">| You are quite good my <span class="keyword">friend</span>!</span><br><span class="line"></span><br><span class="line">  |==========================================          |  <span class="number">80</span>%</span><br><span class="line"></span><br><span class="line">| Print the contents <span class="keyword">of</span> t4.</span><br><span class="line"></span><br><span class="line">&gt; t4</span><br><span class="line">[<span class="number">1</span>] <span class="string">"1986-10-17 08:24:00 CST"</span></span><br><span class="line"></span><br><span class="line">| Perseverance, that<span class="comment">'s the answer.</span></span><br><span class="line"></span><br><span class="line">  |===========================================         |  <span class="number">83</span>%</span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s the format we've come to expect. Now, let's check</span></span><br><span class="line">| its <span class="keyword">class</span>().</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">class</span>(t4)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"POSIXlt"</span> <span class="string">"POSIXt"</span> </span><br><span class="line"></span><br><span class="line">| You<span class="comment">'re the best!</span></span><br><span class="line"></span><br><span class="line">  |=============================================       |  <span class="number">86</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Finally</span>, there are a number <span class="keyword">of</span> operations that you can</span><br><span class="line">| perform <span class="keyword">on</span> dates <span class="keyword">and</span> times, including arithmetic operations</span><br><span class="line">| (+ <span class="keyword">and</span> -) <span class="keyword">and</span> comparisons (&lt;, ==, etc.)</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==============================================      |  <span class="number">89</span>%</span><br><span class="line"></span><br><span class="line">| The variable t1 contains the time at which you created it</span><br><span class="line">| (recall you used Sys.time()). Confirm that some time has</span><br><span class="line">| passed since you created t1 <span class="keyword">by</span> <span class="keyword">using</span> the <span class="comment">'greater than'</span></span><br><span class="line">| <span class="keyword">operator</span> <span class="keyword">to</span> <span class="keyword">compare</span> it <span class="keyword">to</span> the current time: Sys.time() &gt; t1</span><br><span class="line"></span><br><span class="line">&gt; Sys.time() &gt; t1</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s a job well done!</span></span><br><span class="line"></span><br><span class="line">  |================================================    |  <span class="number">91</span>%</span><br><span class="line"></span><br><span class="line">| So we know that some time has passed, but how much? <span class="keyword">Try</span></span><br><span class="line">| subtracting t1 <span class="keyword">from</span> the current time <span class="keyword">using</span> Sys.time() - t1.</span><br><span class="line">| Don<span class="comment">'t forget the parentheses at the end of Sys.time(),</span></span><br><span class="line">| since it <span class="keyword">is</span> a <span class="keyword">function</span>.</span><br><span class="line"></span><br><span class="line">&gt; Sys.time() - t1</span><br><span class="line">Time difference <span class="keyword">of</span> <span class="number">28.06015</span> mins</span><br><span class="line"></span><br><span class="line">| You are amazing!</span><br><span class="line"></span><br><span class="line">  |=================================================   |  <span class="number">94</span>%</span><br><span class="line"></span><br><span class="line">| The same line <span class="keyword">of</span> thinking applies <span class="keyword">to</span> addition <span class="keyword">and</span> the other</span><br><span class="line">| comparison operators. <span class="keyword">If</span> you want more control over the</span><br><span class="line">| units <span class="keyword">when</span> finding the above difference <span class="keyword">in</span> times, you can</span><br><span class="line">| use difftime(), which allows you <span class="keyword">to</span> specify a <span class="comment">'units'</span></span><br><span class="line">| parameter.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=================================================== |  <span class="number">97</span>%</span><br><span class="line"></span><br><span class="line">| Use difftime(Sys.time(), t1, units = <span class="comment">'days') to find the</span></span><br><span class="line">| amount <span class="keyword">of</span> time <span class="keyword">in</span> DAYS that has passed since you created</span><br><span class="line">| t1.</span><br><span class="line"></span><br><span class="line">&gt; difftime(Sys.time(),t1,units=<span class="comment">'days')</span></span><br><span class="line">Time difference <span class="keyword">of</span> <span class="number">0.02175513</span> days</span><br><span class="line"></span><br><span class="line">| You<span class="comment">'re the best!</span></span><br><span class="line"></span><br><span class="line">  |====================================================| <span class="number">100</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">In</span> this lesson, you learned how <span class="keyword">to</span> work <span class="keyword">with</span> dates <span class="keyword">and</span></span><br><span class="line">| times <span class="keyword">in</span> R. <span class="keyword">While</span> it <span class="keyword">is</span> important <span class="keyword">to</span> understand the basics,</span><br><span class="line">| <span class="keyword">if</span> you find yourself working <span class="keyword">with</span> dates <span class="keyword">and</span> times often,</span><br><span class="line">| you may want <span class="keyword">to</span> check out the lubridate package <span class="keyword">by</span> Hadley</span><br><span class="line">| Wickham.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">| Are you currently enrolled <span class="keyword">in</span> the Coursera course</span><br><span class="line">| associated <span class="keyword">with</span> this lesson?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: Yes</span><br><span class="line"><span class="number">2</span>: No</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">| You<span class="comment">'ve reached the end of this lesson! Returning to the</span></span><br><span class="line">| main menu...</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/"> #R </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+  </div>
+
+  
+  <div class="pagination">
+    <a class="extend prev" rel="prev" href="/page/31/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/33/">&raquo;</a>
+  </div>
+
+
+        </div>
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xmuxiaomo" />
+          <p class="site-author-name">xmuxiaomo</p>
+        </div>
+        <p class="site-description motion-element">匆忙世间的闲人。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">349</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/xmuxiaomo" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/u/2457084784" target="_blank">weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </div>
+
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2022
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">xmuxiaomo</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
+    });
+  </script>
+
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+  
+
+  
+
+    
+      
+    
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xmuxiaomo';
+      var disqus_identifier = 'page/32/index.html';
+      var disqus_url = '';
+
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  
+
+
+
+
+  
+</body>
+</html>

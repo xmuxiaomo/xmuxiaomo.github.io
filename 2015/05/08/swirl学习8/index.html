@@ -1,0 +1,947 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+    <meta name="description" content="匆忙世间的闲人。" />
+
+
+
+	<meta name="keywords" content="R," />
+	
+
+
+    <link rel="alternate" href="/atom.xml" title="小默的博客" type="application/atom+xml" />
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?99006bde90fd9672ff2dd2ebcd1aaf7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <title> swirl学习之八——Logic // 小默的博客 </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">小默的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    <!--增加swiftype搜索功能-->
+    <form class="menu-item menu-item-">
+      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"  />
+    </form>
+    
+    <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+    _st('install','q3oXszmqgzDdD3RJmGAt');
+    </script>
+    <!--增加swiftype搜索功能end-->
+    
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              swirl学习之八——Logic
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-08
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/08/swirl学习8/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/08/swirl学习8/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">| Please choose a course, <span class="keyword">or</span> type <span class="number">0</span> <span class="keyword">to</span> <span class="keyword">exit</span> swirl.</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: R Programming</span><br><span class="line"><span class="number">2</span>: <span class="keyword">Take</span> <span class="keyword">me</span> <span class="keyword">to</span> the swirl course repository!</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">1</span></span><br><span class="line"></span><br><span class="line">| Please choose a lesson, <span class="keyword">or</span> type <span class="number">0</span> <span class="keyword">to</span> <span class="keyword">return</span> <span class="keyword">to</span> course menu.</span><br><span class="line"></span><br><span class="line"> <span class="number">1</span>: Basic Building Blocks      <span class="number">2</span>: Workspace <span class="keyword">and</span> Files     </span><br><span class="line"> <span class="number">3</span>: Sequences <span class="keyword">of</span> Numbers       <span class="number">4</span>: Vectors                 </span><br><span class="line"> <span class="number">5</span>: Missing Values             <span class="number">6</span>: Subsetting Vectors      </span><br><span class="line"> <span class="number">7</span>: Matrices <span class="keyword">and</span> Data Frames   <span class="number">8</span>: Logic                   </span><br><span class="line"> <span class="number">9</span>: Functions                 <span class="number">10</span>: lapply <span class="keyword">and</span> sapply       </span><br><span class="line"><span class="number">11</span>: vapply <span class="keyword">and</span> tapply         <span class="number">12</span>: Looking at Data         </span><br><span class="line"><span class="number">13</span>: Simulation                <span class="number">14</span>: Dates <span class="keyword">and</span> Times         </span><br><span class="line"><span class="number">15</span>: Base Graphics             </span><br><span class="line"></span><br><span class="line">Selection: <span class="number">8</span></span><br><span class="line"></span><br><span class="line">  |                                                            |   <span class="number">0</span>%</span><br><span class="line"></span><br><span class="line">| This lesson <span class="keyword">is</span> meant <span class="keyword">to</span> be a <span class="built_in">short</span> introduction <span class="keyword">to</span> logical</span><br><span class="line">| operations <span class="keyword">in</span> R.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=                                                           |   <span class="number">2</span>%</span><br><span class="line"></span><br><span class="line">| There are two logical values <span class="keyword">in</span> R, also called <span class="built_in">boolean</span> values. They</span><br><span class="line">| are <span class="literal">TRUE</span> <span class="keyword">and</span> <span class="literal">FALSE</span>. <span class="keyword">In</span> R you can construct logical expressions</span><br><span class="line">| which will evaluate <span class="keyword">to</span> either <span class="literal">TRUE</span> <span class="keyword">or</span> <span class="literal">FALSE</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==                                                          |   <span class="number">4</span>%</span><br><span class="line"></span><br><span class="line">| Many <span class="keyword">of</span> the questions <span class="keyword">in</span> this lesson will involve evaluating</span><br><span class="line">| logical expressions. It may be useful <span class="keyword">to</span> open up a second R</span><br><span class="line">| terminal <span class="keyword">where</span> you can experiment <span class="keyword">with</span> some <span class="keyword">of</span> these expressions.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |====                                                        |   <span class="number">6</span>%</span><br><span class="line"></span><br><span class="line">| Creating logical expressions requires logical operators. You<span class="comment">'re</span></span><br><span class="line">| probably familiar <span class="keyword">with</span> arithmetic operators <span class="keyword">like</span> `+`, `-`, `*`, <span class="keyword">and</span></span><br><span class="line">| `/`. The first logical <span class="keyword">operator</span> we are going <span class="keyword">to</span> discuss <span class="keyword">is</span> the</span><br><span class="line">| equality <span class="keyword">operator</span>, represented <span class="keyword">by</span> two <span class="keyword">equals</span> signs `==`. Use the</span><br><span class="line">| equality <span class="keyword">operator</span> below <span class="keyword">to</span> find out <span class="keyword">if</span> <span class="literal">TRUE</span> <span class="keyword">is</span> equal <span class="keyword">to</span> <span class="literal">TRUE</span>.</span><br><span class="line"></span><br><span class="line">&gt; <span class="literal">TRUE</span> == <span class="literal">TRUE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| Excellent job!</span><br><span class="line"></span><br><span class="line">  |=====                                                       |   <span class="number">8</span>%</span><br><span class="line"></span><br><span class="line">| Just <span class="keyword">like</span> arithmetic, logical expressions can be grouped <span class="keyword">by</span></span><br><span class="line">| parenthesis so that the entire expression (<span class="literal">TRUE</span> == <span class="literal">TRUE</span>) == <span class="literal">TRUE</span></span><br><span class="line">| evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |======                                                      |  <span class="number">10</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">To</span> test out this <span class="keyword">property</span>, <span class="keyword">try</span> evaluating (<span class="literal">FALSE</span> == <span class="literal">TRUE</span>) == <span class="literal">FALSE</span></span><br><span class="line">| .</span><br><span class="line"></span><br><span class="line">&gt; (<span class="literal">FALSE</span>==<span class="literal">TRUE</span>)==<span class="literal">FALSE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| You got it!</span><br><span class="line"></span><br><span class="line">  |=======                                                     |  <span class="number">12</span>%</span><br><span class="line"></span><br><span class="line">| The equality <span class="keyword">operator</span> can also be used <span class="keyword">to</span> <span class="keyword">compare</span> numbers. Use `==`</span><br><span class="line">| <span class="keyword">to</span> see <span class="keyword">if</span> <span class="number">6</span> <span class="keyword">is</span> equal <span class="keyword">to</span> <span class="number">7.</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">6</span>==<span class="number">7</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></span><br><span class="line"></span><br><span class="line">| You got it!</span><br><span class="line"></span><br><span class="line">  |========                                                    |  <span class="number">14</span>%</span><br><span class="line"></span><br><span class="line">| The previous expression evaluates <span class="keyword">to</span> <span class="literal">FALSE</span> because <span class="number">6</span> <span class="keyword">is</span> less than</span><br><span class="line">| <span class="number">7.</span> Thankfully, there are inequality operators that allow us <span class="keyword">to</span> test</span><br><span class="line">| <span class="keyword">if</span> a value <span class="keyword">is</span> less than <span class="keyword">or</span> greater than another value.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=========                                                   |  <span class="number">16</span>%</span><br><span class="line"></span><br><span class="line">| The less than <span class="keyword">operator</span> `&lt;` tests whether the number <span class="keyword">on</span> the left</span><br><span class="line">| side <span class="keyword">of</span> the <span class="keyword">operator</span> (called the left operand) <span class="keyword">is</span> less than the</span><br><span class="line">| number <span class="keyword">on</span> the right side <span class="keyword">of</span> the <span class="keyword">operator</span> (called the right</span><br><span class="line">| operand). Write an expression <span class="keyword">to</span> test whether <span class="number">6</span> <span class="keyword">is</span> less than <span class="number">7.</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">6</span>&lt;<span class="number">7</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| You nailed it! Good job!</span><br><span class="line"></span><br><span class="line">  |===========                                                 |  <span class="number">18</span>%</span><br><span class="line"></span><br><span class="line">| There <span class="keyword">is</span> also a less-than-<span class="keyword">or</span>-equal-<span class="keyword">to</span> <span class="keyword">operator</span> `&lt;=` which tests</span><br><span class="line">| whether the left operand <span class="keyword">is</span> less than <span class="keyword">or</span> equal <span class="keyword">to</span> the right</span><br><span class="line">| operand. Write an expression <span class="keyword">to</span> test whether <span class="number">10</span> <span class="keyword">is</span> less than <span class="keyword">or</span></span><br><span class="line">| equal <span class="keyword">to</span> <span class="number">10.</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">10</span>&lt;=<span class="number">10</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s the answer I was looking for.</span></span><br><span class="line"></span><br><span class="line">  |============                                                |  <span class="number">20</span>%</span><br><span class="line"></span><br><span class="line">| Keep <span class="keyword">in</span> mind that there are the corresponding greater than `&gt;` <span class="keyword">and</span></span><br><span class="line">| greater-than-<span class="keyword">or</span>-equal-<span class="keyword">to</span> `&gt;=` operators.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=============                                               |  <span class="number">22</span>%</span><br><span class="line"></span><br><span class="line">| Which <span class="keyword">of</span> the following evaluates <span class="keyword">to</span> <span class="literal">FALSE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: <span class="number">6</span> &lt; <span class="number">8</span></span><br><span class="line"><span class="number">2</span>: <span class="number">7</span> == <span class="number">7</span></span><br><span class="line"><span class="number">3</span>: <span class="number">0</span> &gt; -<span class="number">36</span></span><br><span class="line"><span class="number">4</span>: <span class="number">9</span> &gt;= <span class="number">10</span></span><br><span class="line"></span><br><span class="line">Selection: <span class="number">4</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s correct!</span></span><br><span class="line"></span><br><span class="line">  |==============                                              |  <span class="number">24</span>%</span><br><span class="line"></span><br><span class="line">| Which <span class="keyword">of</span> the following evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: <span class="number">57</span> &lt; <span class="number">8</span></span><br><span class="line"><span class="number">2</span>: -<span class="number">6</span> &gt; -<span class="number">7</span></span><br><span class="line"><span class="number">3</span>: <span class="number">7</span> == <span class="number">9</span></span><br><span class="line"><span class="number">4</span>: <span class="number">9</span> &gt;= <span class="number">10</span></span><br><span class="line"></span><br><span class="line">Selection: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">| Keep up the great work!</span><br><span class="line"></span><br><span class="line">  |===============                                             |  <span class="number">25</span>%</span><br><span class="line"></span><br><span class="line">| The <span class="keyword">next</span> <span class="keyword">operator</span> we will discuss <span class="keyword">is</span> the <span class="comment">'not equals' operator</span></span><br><span class="line">| represented <span class="keyword">by</span> `!=`. <span class="keyword">Not</span> <span class="keyword">equals</span> tests whether two values are</span><br><span class="line">| unequal, so <span class="literal">TRUE</span> != <span class="literal">FALSE</span> evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>. <span class="keyword">Like</span> the equality</span><br><span class="line">| <span class="keyword">operator</span>, `!=` can also be used <span class="keyword">with</span> numbers. <span class="keyword">Try</span> writing an</span><br><span class="line">| expression <span class="keyword">to</span> see <span class="keyword">if</span> <span class="number">5</span> <span class="keyword">is</span> <span class="keyword">not</span> equal <span class="keyword">to</span> <span class="number">7.</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">5</span>!=<span class="number">7</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| You are quite good my <span class="keyword">friend</span>!</span><br><span class="line"></span><br><span class="line">  |================                                            |  <span class="number">27</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">In</span> <span class="keyword">order</span> <span class="keyword">to</span> negate <span class="built_in">boolean</span> expressions you can use the <span class="keyword">NOT</span></span><br><span class="line">| <span class="keyword">operator</span>. An exclamation point `!` will cause !<span class="literal">TRUE</span> (say: <span class="keyword">not</span> <span class="literal">true</span>)</span><br><span class="line">| <span class="keyword">to</span> evaluate <span class="keyword">to</span> <span class="literal">FALSE</span> <span class="keyword">and</span> !<span class="literal">FALSE</span> (say: <span class="keyword">not</span> <span class="literal">false</span>) <span class="keyword">to</span> evaluate <span class="keyword">to</span></span><br><span class="line">| <span class="literal">TRUE</span>. <span class="keyword">Try</span> <span class="keyword">using</span> the <span class="keyword">NOT</span> <span class="keyword">operator</span> <span class="keyword">and</span> the <span class="keyword">equals</span> <span class="keyword">operator</span> <span class="keyword">to</span> find</span><br><span class="line">| the opposite <span class="keyword">of</span> whether <span class="number">5</span> <span class="keyword">is</span> equal <span class="keyword">to</span> <span class="number">7.</span></span><br><span class="line"></span><br><span class="line">&gt; !(<span class="number">5</span>==<span class="number">7</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| You<span class="comment">'re the best!</span></span><br><span class="line"></span><br><span class="line">  |==================                                          |  <span class="number">29</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s take a moment to review. The equals operator `==` tests</span></span><br><span class="line">| whether two <span class="built_in">boolean</span> values <span class="keyword">or</span> numbers are equal, the <span class="keyword">not</span> <span class="keyword">equals</span></span><br><span class="line">| <span class="keyword">operator</span> `!=` tests whether two <span class="built_in">boolean</span> values <span class="keyword">or</span> numbers are</span><br><span class="line">| unequal, <span class="keyword">and</span> the <span class="keyword">NOT</span> <span class="keyword">operator</span> `!` negates logical expressions so</span><br><span class="line">| that <span class="literal">TRUE</span> expressions become <span class="literal">FALSE</span> <span class="keyword">and</span> <span class="literal">FALSE</span> expressions become</span><br><span class="line">| <span class="literal">TRUE</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===================                                         |  <span class="number">31</span>%</span><br><span class="line"></span><br><span class="line">| Which <span class="keyword">of</span> the following evaluates <span class="keyword">to</span> <span class="literal">FALSE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: <span class="number">7</span> != <span class="number">8</span></span><br><span class="line"><span class="number">2</span>: !<span class="literal">FALSE</span></span><br><span class="line"><span class="number">3</span>: <span class="number">9</span> &lt; <span class="number">10</span></span><br><span class="line"><span class="number">4</span>: !(<span class="number">0</span> &gt;= -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">4</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s the answer I was looking for.</span></span><br><span class="line"></span><br><span class="line">  |====================                                        |  <span class="number">33</span>%</span><br><span class="line"></span><br><span class="line">| What <span class="keyword">do</span> you think the following expression will evaluate <span class="keyword">to</span>?: (<span class="literal">TRUE</span></span><br><span class="line">| != <span class="literal">FALSE</span>) == !(<span class="number">6</span> == <span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: Can there be objective truth <span class="keyword">when</span> programming?</span><br><span class="line"><span class="number">2</span>: %&gt;%</span><br><span class="line"><span class="number">3</span>: <span class="literal">FALSE</span></span><br><span class="line"><span class="number">4</span>: <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">Selection: <span class="number">4</span></span><br><span class="line"></span><br><span class="line">| All that practice <span class="keyword">is</span> paying <span class="keyword">off</span>!</span><br><span class="line"></span><br><span class="line">  |=====================                                       |  <span class="number">35</span>%</span><br><span class="line"></span><br><span class="line">| At some point you may need <span class="keyword">to</span> examine relationships between</span><br><span class="line">| multiple logical expressions. This <span class="keyword">is</span> <span class="keyword">where</span> the <span class="keyword">AND</span> <span class="keyword">operator</span> <span class="keyword">and</span></span><br><span class="line">| the <span class="keyword">OR</span> <span class="keyword">operator</span> come <span class="keyword">in</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |======================                                      |  <span class="number">37</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s look at how the AND operator works. There are two AND</span></span><br><span class="line">| operators <span class="keyword">in</span> R, `&amp;` <span class="keyword">and</span> `&amp;&amp;`. Both operators work similarly, <span class="keyword">if</span> the</span><br><span class="line">| right <span class="keyword">and</span> left operands <span class="keyword">of</span> <span class="keyword">AND</span> are both <span class="literal">TRUE</span> the entire expression</span><br><span class="line">| <span class="keyword">is</span> <span class="literal">TRUE</span>, otherwise it <span class="keyword">is</span> <span class="literal">FALSE</span>. <span class="keyword">For</span> example, <span class="literal">TRUE</span> &amp; <span class="literal">TRUE</span> evaluates</span><br><span class="line">| <span class="keyword">to</span> <span class="literal">TRUE</span>. <span class="keyword">Try</span> typing <span class="literal">FALSE</span> &amp; <span class="literal">FALSE</span> <span class="keyword">to</span> how it <span class="keyword">is</span> evaluated.</span><br><span class="line"></span><br><span class="line">&gt; <span class="literal">FALSE</span>&amp;<span class="literal">FALSE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></span><br><span class="line"></span><br><span class="line">| Excellent work!</span><br><span class="line"></span><br><span class="line">  |========================                                    |  <span class="number">39</span>%</span><br><span class="line"></span><br><span class="line">| You can use the `&amp;` <span class="keyword">operator</span> <span class="keyword">to</span> evaluate <span class="keyword">AND</span> across a vector. The</span><br><span class="line">| `&amp;&amp;` version <span class="keyword">of</span> <span class="keyword">AND</span> only evaluates the first member <span class="keyword">of</span> a vector.</span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s test both for practice. Type the expression TRUE &amp; c(TRUE,</span></span><br><span class="line">| <span class="literal">FALSE</span>, <span class="literal">FALSE</span>).</span><br><span class="line"></span><br><span class="line">&gt; <span class="literal">TRUE</span>&amp;c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">FALSE</span>)</span><br><span class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span></span><br><span class="line"></span><br><span class="line">| Great job!</span><br><span class="line"></span><br><span class="line">  |=========================                                   |  <span class="number">41</span>%</span><br><span class="line"></span><br><span class="line">| What happens <span class="keyword">in</span> this <span class="keyword">case</span> <span class="keyword">is</span> that the left operand `<span class="literal">TRUE</span>` <span class="keyword">is</span></span><br><span class="line">| recycled across every element <span class="keyword">in</span> the vector <span class="keyword">of</span> the right operand.</span><br><span class="line">| This <span class="keyword">is</span> the equivalent statement <span class="keyword">as</span> c(<span class="literal">TRUE</span>, <span class="literal">TRUE</span>, <span class="literal">TRUE</span>) &amp; c(<span class="literal">TRUE</span>,</span><br><span class="line">| <span class="literal">FALSE</span>, <span class="literal">FALSE</span>).</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==========================                                  |  <span class="number">43</span>%</span><br><span class="line"></span><br><span class="line">| Now we<span class="comment">'ll type the same expression except we'll use the `&amp;&amp;`</span></span><br><span class="line">| <span class="keyword">operator</span>. Type the expression <span class="literal">TRUE</span> &amp;&amp; c(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>).</span><br><span class="line"></span><br><span class="line">&gt; <span class="literal">TRUE</span>&amp;&amp;c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">FALSE</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| All that hard work <span class="keyword">is</span> paying <span class="keyword">off</span>!</span><br><span class="line"></span><br><span class="line">  |===========================                                 |  <span class="number">45</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">In</span> this <span class="keyword">case</span>, the left operand <span class="keyword">is</span> only evaluated <span class="keyword">with</span> the first</span><br><span class="line">| member <span class="keyword">of</span> the right operand (the vector). The rest <span class="keyword">of</span> the elements</span><br><span class="line">| <span class="keyword">in</span> the vector aren<span class="comment">'t evaluated at all in this expression.</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |============================                                |  <span class="number">47</span>%</span><br><span class="line"></span><br><span class="line">| The <span class="keyword">OR</span> <span class="keyword">operator</span> follows a similar <span class="keyword">set</span> <span class="keyword">of</span> rules. The `|` version <span class="keyword">of</span></span><br><span class="line">| <span class="keyword">OR</span> evaluates <span class="keyword">OR</span> across an entire vector, <span class="keyword">while</span> the `||` version <span class="keyword">of</span></span><br><span class="line">| <span class="keyword">OR</span> only evaluates the first member <span class="keyword">of</span> a vector.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=============================                               |  <span class="number">49</span>%</span><br><span class="line"></span><br><span class="line">| An expression <span class="keyword">using</span> the <span class="keyword">OR</span> <span class="keyword">operator</span> will evaluate <span class="keyword">to</span> <span class="literal">TRUE</span> <span class="keyword">if</span> the</span><br><span class="line">| left operand <span class="keyword">or</span> the right operand <span class="keyword">is</span> <span class="literal">TRUE</span>. <span class="keyword">If</span> both are <span class="literal">TRUE</span>, the</span><br><span class="line">| expression will evaluate <span class="keyword">to</span> <span class="literal">TRUE</span>, however <span class="keyword">if</span> neither are <span class="literal">TRUE</span>, <span class="keyword">then</span></span><br><span class="line">| the expression will be <span class="literal">FALSE</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===============================                             |  <span class="number">51</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s test out the vectorized version of the OR operator. Type the</span></span><br><span class="line">| expression <span class="literal">TRUE</span> | c(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>).</span><br><span class="line"></span><br><span class="line">&gt; <span class="literal">TRUE</span>|c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">FALSE</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span> <span class="literal">TRUE</span> <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| Great job!</span><br><span class="line"></span><br><span class="line">  |================================                            |  <span class="number">53</span>%</span><br><span class="line"></span><br><span class="line">| Now <span class="keyword">let</span><span class="comment">'s try out the non-vectorized version of the OR operator.</span></span><br><span class="line">| Type the expression <span class="literal">TRUE</span> || c(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>).</span><br><span class="line"></span><br><span class="line">&gt; <span class="literal">TRUE</span>||c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">FALSE</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| Perseverance, that<span class="comment">'s the answer.</span></span><br><span class="line"></span><br><span class="line">  |=================================                           |  <span class="number">55</span>%</span><br><span class="line"></span><br><span class="line">| Logical operators can be chained together just <span class="keyword">like</span> arithmetic</span><br><span class="line">| operators. The expressions: `<span class="number">6</span> != <span class="number">10</span> &amp;&amp; <span class="literal">FALSE</span> &amp;&amp; <span class="number">1</span> &gt;= <span class="number">2</span>` <span class="keyword">or</span> `<span class="literal">TRUE</span></span><br><span class="line">| || <span class="number">5</span> &lt; <span class="number">9.3</span> || <span class="literal">FALSE</span>` are perfectly normal <span class="keyword">to</span> see.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==================================                          |  <span class="number">57</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">As</span> you may recall, arithmetic has an <span class="keyword">order</span> <span class="keyword">of</span> operations <span class="keyword">and</span> so <span class="keyword">do</span></span><br><span class="line">| logical expressions. All <span class="keyword">AND</span> operators are evaluated before <span class="keyword">OR</span></span><br><span class="line">| operators. <span class="keyword">Let</span><span class="comment">'s look at an example of an ambiguous case. Type: 5 &gt;</span></span><br><span class="line">| <span class="number">8</span> || <span class="number">6</span> != <span class="number">8</span> &amp;&amp; <span class="number">4</span> &gt; <span class="number">3.9</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">5</span> &gt; <span class="number">8</span> || <span class="number">6</span> != <span class="number">8</span> &amp;&amp; <span class="number">4</span> &gt; <span class="number">3.9</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| You are quite good my <span class="keyword">friend</span>!</span><br><span class="line"></span><br><span class="line">  |===================================                         |  <span class="number">59</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s walk through the order of operations in the above case. First</span></span><br><span class="line">| the left <span class="keyword">and</span> right operands <span class="keyword">of</span> the <span class="keyword">AND</span> <span class="keyword">operator</span> are evaluated. <span class="number">6</span> <span class="keyword">is</span></span><br><span class="line">| <span class="keyword">not</span> equal <span class="number">8</span>, <span class="number">4</span> <span class="keyword">is</span> greater than <span class="number">3.9</span>, therefore both operands are</span><br><span class="line">| <span class="literal">TRUE</span> so the resulting expression `<span class="literal">TRUE</span> &amp;&amp; <span class="literal">TRUE</span>` evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>.</span><br><span class="line">| <span class="keyword">Then</span> the left operand <span class="keyword">of</span> the <span class="keyword">OR</span> <span class="keyword">operator</span> <span class="keyword">is</span> evaluated: <span class="number">5</span> <span class="keyword">is</span> <span class="keyword">not</span></span><br><span class="line">| greater than <span class="number">8</span> so the entire expression <span class="keyword">is</span> reduced <span class="keyword">to</span> <span class="literal">FALSE</span> ||</span><br><span class="line">| <span class="literal">TRUE</span>. Since the right operand <span class="keyword">of</span> this expression <span class="keyword">is</span> <span class="literal">TRUE</span> the entire</span><br><span class="line">| expression evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |====================================                        |  <span class="number">61</span>%</span><br><span class="line"></span><br><span class="line">| Which one <span class="keyword">of</span> the following expressions evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: <span class="number">99.99</span> &gt; <span class="number">100</span> || <span class="number">45</span> &lt; <span class="number">7.3</span> || <span class="number">4</span> != <span class="number">4.0</span></span><br><span class="line"><span class="number">2</span>: <span class="literal">TRUE</span> &amp;&amp; <span class="literal">FALSE</span> || <span class="number">9</span> &gt;= <span class="number">4</span> &amp;&amp; <span class="number">3</span> &lt; <span class="number">6</span></span><br><span class="line"><span class="number">3</span>: <span class="literal">FALSE</span> || <span class="literal">TRUE</span> &amp;&amp; <span class="literal">FALSE</span></span><br><span class="line"><span class="number">4</span>: <span class="literal">TRUE</span> &amp;&amp; <span class="number">62</span> &lt; <span class="number">62</span> &amp;&amp; <span class="number">44</span> &gt;= <span class="number">44</span></span><br><span class="line"></span><br><span class="line">Selection: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">| All that hard work <span class="keyword">is</span> paying <span class="keyword">off</span>!</span><br><span class="line"></span><br><span class="line">  |======================================                      |  <span class="number">63</span>%</span><br><span class="line"></span><br><span class="line">| Which one <span class="keyword">of</span> the following expressions evaluates <span class="keyword">to</span> <span class="literal">FALSE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: !(<span class="number">8</span> &gt; <span class="number">4</span>) ||  <span class="number">5</span> == <span class="number">5.0</span> &amp;&amp; <span class="number">7.8</span> &gt;= <span class="number">7.79</span></span><br><span class="line"><span class="number">2</span>: <span class="literal">FALSE</span> || <span class="literal">TRUE</span> &amp;&amp; <span class="number">6</span> != <span class="number">4</span> || <span class="number">9</span> &gt; <span class="number">4</span></span><br><span class="line"><span class="number">3</span>: <span class="number">6</span> &gt;= -<span class="number">9</span> &amp;&amp; !(<span class="number">6</span> &gt; <span class="number">7</span>) &amp;&amp; !(!<span class="literal">TRUE</span>)</span><br><span class="line"><span class="number">4</span>: <span class="literal">FALSE</span> &amp;&amp; <span class="number">6</span> &gt;= <span class="number">6</span> || <span class="number">7</span> &gt;= <span class="number">8</span> || <span class="number">50</span> &lt;= <span class="number">49.5</span></span><br><span class="line"></span><br><span class="line">Selection: <span class="number">4</span></span><br><span class="line"></span><br><span class="line">| Excellent work!</span><br><span class="line"></span><br><span class="line">  |=======================================                     |  <span class="number">65</span>%</span><br><span class="line"></span><br><span class="line">| Now that you<span class="comment">'re familiar with R's logical operators you can take</span></span><br><span class="line">| advantage <span class="keyword">of</span> a few functions that R provides <span class="keyword">for</span> dealing <span class="keyword">with</span></span><br><span class="line">| logical expressions.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |========================================                    |  <span class="number">67</span>%</span><br><span class="line"></span><br><span class="line">| The <span class="keyword">function</span> <span class="keyword">isTRUE</span>() takes one argument. <span class="keyword">If</span> that argument</span><br><span class="line">| evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>, the <span class="keyword">function</span> will <span class="keyword">return</span> <span class="literal">TRUE</span>. Otherwise, the</span><br><span class="line">| <span class="keyword">function</span> will <span class="keyword">return</span> <span class="literal">FALSE</span>. <span class="keyword">Try</span> <span class="keyword">using</span> this <span class="keyword">function</span> <span class="keyword">by</span> typing:</span><br><span class="line">| <span class="keyword">isTRUE</span>(<span class="number">6</span> &gt; <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">isTRUE</span>(<span class="number">6</span>&gt;<span class="number">4</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| You are really <span class="keyword">on</span> a roll!</span><br><span class="line"></span><br><span class="line">  |=========================================                   |  <span class="number">69</span>%</span><br><span class="line"></span><br><span class="line">| Which <span class="keyword">of</span> the following evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: <span class="keyword">isTRUE</span>(<span class="number">3</span>)</span><br><span class="line"><span class="number">2</span>: <span class="keyword">isTRUE</span>(NA)</span><br><span class="line"><span class="number">3</span>: <span class="keyword">isTRUE</span>(!<span class="literal">TRUE</span>)</span><br><span class="line"><span class="number">4</span>: !<span class="keyword">isTRUE</span>(<span class="number">4</span> &lt; <span class="number">3</span>)</span><br><span class="line"><span class="number">5</span>: !<span class="keyword">isTRUE</span>(<span class="number">8</span> != <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">4</span></span><br><span class="line"></span><br><span class="line">| Excellent work!</span><br><span class="line"></span><br><span class="line">  |==========================================                  |  <span class="number">71</span>%</span><br><span class="line"></span><br><span class="line">| The <span class="keyword">function</span> identical() will <span class="keyword">return</span> <span class="literal">TRUE</span> <span class="keyword">if</span> the two R objects</span><br><span class="line">| passed <span class="keyword">to</span> it <span class="keyword">as</span> arguments are identical. <span class="keyword">Try</span> out the identical()</span><br><span class="line">| <span class="keyword">function</span> <span class="keyword">by</span> typing: identical(<span class="comment">'twins', 'twins')</span></span><br><span class="line"></span><br><span class="line">&gt; identical(<span class="comment">'twins','twins')</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| Great job!</span><br><span class="line"></span><br><span class="line">  |============================================                |  <span class="number">73</span>%</span><br><span class="line"></span><br><span class="line">| Which <span class="keyword">of</span> the following evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: identical(<span class="number">4</span>, <span class="number">3.1</span>)</span><br><span class="line"><span class="number">2</span>: identical(<span class="comment">'hello', 'Hello')</span></span><br><span class="line"><span class="number">3</span>: identical(<span class="number">5</span> &gt; <span class="number">4</span>, <span class="number">3</span> &lt; <span class="number">3.1</span>)</span><br><span class="line"><span class="number">4</span>: !identical(<span class="number">7</span>, <span class="number">7</span>)</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">3</span></span><br><span class="line"></span><br><span class="line">| Keep working <span class="keyword">like</span> that <span class="keyword">and</span> you<span class="comment">'ll get there!</span></span><br><span class="line"></span><br><span class="line">  |=============================================               |  <span class="number">75</span>%</span><br><span class="line"></span><br><span class="line">| You should also be aware <span class="keyword">of</span> the <span class="keyword">xor</span>() <span class="keyword">function</span>, which takes two</span><br><span class="line">| arguments. The <span class="keyword">xor</span>() <span class="keyword">function</span> stands <span class="keyword">for</span> exclusive <span class="keyword">OR</span>. <span class="keyword">If</span> one</span><br><span class="line">| argument evaluates <span class="keyword">to</span> <span class="literal">TRUE</span> <span class="keyword">and</span> one argument evaluates <span class="keyword">to</span> <span class="literal">FALSE</span>,</span><br><span class="line">| <span class="keyword">then</span> this <span class="keyword">function</span> will <span class="keyword">return</span> <span class="literal">TRUE</span>, otherwise it will <span class="keyword">return</span></span><br><span class="line">| <span class="literal">FALSE</span>. <span class="keyword">Try</span> out the <span class="keyword">xor</span>() <span class="keyword">function</span> <span class="keyword">by</span> typing: <span class="keyword">xor</span>(<span class="number">5</span> == <span class="number">6</span>, !<span class="literal">FALSE</span>)</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">xor</span>(<span class="number">5</span>==<span class="number">6</span>,!<span class="literal">FALSE</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| Perseverance, that<span class="comment">'s the answer.</span></span><br><span class="line"></span><br><span class="line">  |==============================================              |  <span class="number">76</span>%</span><br><span class="line"></span><br><span class="line">| <span class="number">5</span> == <span class="number">6</span> evaluates <span class="keyword">to</span> <span class="literal">FALSE</span>, !<span class="literal">FALSE</span> evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>, so <span class="keyword">xor</span>(<span class="literal">FALSE</span>,</span><br><span class="line">| <span class="literal">TRUE</span>) evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>. <span class="keyword">On</span> the other hand <span class="keyword">if</span> the first argument</span><br><span class="line">| was changed <span class="keyword">to</span> <span class="number">5</span> == <span class="number">5</span> <span class="keyword">and</span> the second argument was unchanged <span class="keyword">then</span></span><br><span class="line">| both arguments would have been <span class="literal">TRUE</span>, so <span class="keyword">xor</span>(<span class="literal">TRUE</span>, <span class="literal">TRUE</span>) would have</span><br><span class="line">| evaluated <span class="keyword">to</span> <span class="literal">FALSE</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===============================================             |  <span class="number">78</span>%</span><br><span class="line"></span><br><span class="line">| Which <span class="keyword">of</span> the following evaluates <span class="keyword">to</span> <span class="literal">FALSE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: <span class="keyword">xor</span>(!<span class="keyword">isTRUE</span>(<span class="literal">TRUE</span>), <span class="number">6</span> &gt; -<span class="number">1</span>)</span><br><span class="line"><span class="number">2</span>: <span class="keyword">xor</span>(!!<span class="literal">TRUE</span>, !!<span class="literal">FALSE</span>)</span><br><span class="line"><span class="number">3</span>: <span class="keyword">xor</span>(<span class="number">4</span> &gt;= <span class="number">9</span>, <span class="number">8</span> != <span class="number">8.0</span>)</span><br><span class="line"><span class="number">4</span>: <span class="keyword">xor</span>(identical(<span class="keyword">xor</span>, <span class="comment">'xor'), 7 == 7.0)</span></span><br><span class="line"></span><br><span class="line">Selection: <span class="number">3</span></span><br><span class="line"></span><br><span class="line">| You are doing so well!</span><br><span class="line"></span><br><span class="line">  |================================================            |  <span class="number">80</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">For</span> the <span class="keyword">next</span> few questions, we<span class="comment">'re going to need to create a vector</span></span><br><span class="line">| <span class="keyword">of</span> integers called ints. Create this vector <span class="keyword">by</span> typing: ints &lt;-</span><br><span class="line">| sample(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">&gt; ints&lt;-sample(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s the answer I was looking for.</span></span><br><span class="line"></span><br><span class="line">  |=================================================           |  <span class="number">82</span>%</span><br><span class="line"></span><br><span class="line">| Now simply display the contents <span class="keyword">of</span> ints.</span><br><span class="line"></span><br><span class="line">&gt; ints</span><br><span class="line"> [<span class="number">1</span>]  <span class="number">9</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">1</span>  <span class="number">6</span>  <span class="number">5</span>  <span class="number">4</span>  <span class="number">8</span> <span class="number">10</span>  <span class="number">7</span></span><br><span class="line"></span><br><span class="line">| You are doing so well!</span><br><span class="line"></span><br><span class="line">  |===================================================         |  <span class="number">84</span>%</span><br><span class="line"></span><br><span class="line">| The vector `ints` <span class="keyword">is</span> a random sampling <span class="keyword">of</span> integers <span class="keyword">from</span> <span class="number">1</span> <span class="keyword">to</span> <span class="number">10</span></span><br><span class="line">| without replacement. <span class="keyword">Let</span><span class="comment">'s say we wanted to ask some logical</span></span><br><span class="line">| questions about contents <span class="keyword">of</span> ints. <span class="keyword">If</span> we type ints &gt; <span class="number">5</span>, we will <span class="keyword">get</span></span><br><span class="line">| a logical vector corresponding <span class="keyword">to</span> whether <span class="keyword">each</span> element <span class="keyword">of</span> ints <span class="keyword">is</span></span><br><span class="line">| greater than <span class="number">5.</span> <span class="keyword">Try</span> typing: ints &gt; <span class="number">5</span></span><br><span class="line"></span><br><span class="line">&gt; ints&gt;<span class="number">5</span></span><br><span class="line"> [<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span>  <span class="literal">TRUE</span>  <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| Keep working <span class="keyword">like</span> that <span class="keyword">and</span> you<span class="comment">'ll get there!</span></span><br><span class="line"></span><br><span class="line">  |====================================================        |  <span class="number">86</span>%</span><br><span class="line"></span><br><span class="line">| We can use the resulting logical vector <span class="keyword">to</span> ask other questions</span><br><span class="line">| about ints. The which() <span class="keyword">function</span> takes a logical vector <span class="keyword">as</span> an</span><br><span class="line">| argument <span class="keyword">and</span> returns the indices <span class="keyword">of</span> the vector that are <span class="literal">TRUE</span>. <span class="keyword">For</span></span><br><span class="line">| example which(c(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>)) would <span class="keyword">return</span> the vector c(<span class="number">1</span>,</span><br><span class="line">| <span class="number">3</span>).</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=====================================================       |  <span class="number">88</span>%</span><br><span class="line"></span><br><span class="line">| Use the which() <span class="keyword">function</span> <span class="keyword">to</span> find the indices <span class="keyword">of</span> ints that are</span><br><span class="line">| greater than <span class="number">7.</span></span><br><span class="line"></span><br><span class="line">&gt; which(ints&gt;<span class="number">7</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">8</span> <span class="number">9</span></span><br><span class="line"></span><br><span class="line">| Nice work!</span><br><span class="line"></span><br><span class="line">  |======================================================      |  <span class="number">90</span>%</span><br><span class="line"></span><br><span class="line">| Which <span class="keyword">of</span> the following commands would produce the indices <span class="keyword">of</span> the</span><br><span class="line">| elements <span class="keyword">in</span> ints that are less than <span class="keyword">or</span> equal <span class="keyword">to</span> <span class="number">2</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: which(ints &lt;= <span class="number">2</span>)</span><br><span class="line"><span class="number">2</span>: ints &lt;= <span class="number">2</span></span><br><span class="line"><span class="number">3</span>: which(ints &lt; <span class="number">2</span>)</span><br><span class="line"><span class="number">4</span>: ints &lt; <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Selection: <span class="number">1</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s the answer I was looking for.</span></span><br><span class="line"></span><br><span class="line">  |=======================================================     |  <span class="number">92</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Like</span> the which() <span class="keyword">function</span>, the functions any() <span class="keyword">and</span> all() <span class="keyword">take</span></span><br><span class="line">| logical vectors <span class="keyword">as</span> their argument. The any() <span class="keyword">function</span> will <span class="keyword">return</span></span><br><span class="line">| <span class="literal">TRUE</span> <span class="keyword">if</span> one <span class="keyword">or</span> more <span class="keyword">of</span> the elements <span class="keyword">in</span> the logical vector <span class="keyword">is</span> <span class="literal">TRUE</span>.</span><br><span class="line">| The all() <span class="keyword">function</span> will <span class="keyword">return</span> <span class="literal">TRUE</span> <span class="keyword">if</span> every element <span class="keyword">in</span> the logical</span><br><span class="line">| vector <span class="keyword">is</span> <span class="literal">TRUE</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |========================================================    |  <span class="number">94</span>%</span><br><span class="line"></span><br><span class="line">| Use the any() <span class="keyword">function</span> <span class="keyword">to</span> see <span class="keyword">if</span> any <span class="keyword">of</span> the elements <span class="keyword">of</span> ints are</span><br><span class="line">| less than zero.</span><br><span class="line"></span><br><span class="line">&gt; any(ints&lt;<span class="number">0</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></span><br><span class="line"></span><br><span class="line">| Great job!</span><br><span class="line"></span><br><span class="line">  |==========================================================  |  <span class="number">96</span>%</span><br><span class="line"></span><br><span class="line">| Use the all() <span class="keyword">function</span> <span class="keyword">to</span> see <span class="keyword">if</span> all <span class="keyword">of</span> the elements <span class="keyword">of</span> ints are</span><br><span class="line">| greater than zero.</span><br><span class="line"></span><br><span class="line">&gt; all(ints&gt;<span class="number">0</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| Nice work!</span><br><span class="line"></span><br><span class="line">  |=========================================================== |  <span class="number">98</span>%</span><br><span class="line"></span><br><span class="line">| Which <span class="keyword">of</span> the following evaluates <span class="keyword">to</span> <span class="literal">TRUE</span>?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: all(c(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>))</span><br><span class="line"><span class="number">2</span>: any(ints == <span class="number">10</span>)</span><br><span class="line"><span class="number">3</span>: all(ints == <span class="number">10</span>)</span><br><span class="line"><span class="number">4</span>: any(ints == <span class="number">2.5</span>)</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s a job well done!</span></span><br><span class="line"></span><br><span class="line">  |============================================================| <span class="number">100</span>%</span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s all for this introduction to logic in R. If you really want</span></span><br><span class="line">| <span class="keyword">to</span> see what you can <span class="keyword">do</span> <span class="keyword">with</span> logic, check out the control flow</span><br><span class="line">| lesson!</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">| Are you currently enrolled <span class="keyword">in</span> the Coursera course associated <span class="keyword">with</span></span><br><span class="line">| this lesson?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: Yes</span><br><span class="line"><span class="number">2</span>: No</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">| You<span class="comment">'ve reached the end of this lesson! Returning to the main</span></span><br><span class="line">| menu...</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/"> #R </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/10/问鼎大师/">问鼎大师</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/08/swirl学习7/">swirl学习之七——Matrices and Data Frames</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+      <div class="comments" id="comments">
+        
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xmuxiaomo" />
+          <p class="site-author-name">xmuxiaomo</p>
+        </div>
+        <p class="site-description motion-element">匆忙世间的闲人。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">349</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/xmuxiaomo" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/u/2457084784" target="_blank">weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2022
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">xmuxiaomo</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
+    });
+  </script>
+
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+  
+
+  
+
+    
+      
+    
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xmuxiaomo';
+      var disqus_identifier = '2015/05/08/swirl学习8/';
+      var disqus_url = 'http://xmuxiaomo.github.io/2015/05/08/swirl学习8/';
+
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  
+
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,991 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+    <meta name="description" content="匆忙世间的闲人。" />
+
+
+
+	<meta name="keywords" content="R," />
+	
+
+
+    <link rel="alternate" href="/atom.xml" title="小默的博客" type="application/atom+xml" />
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?99006bde90fd9672ff2dd2ebcd1aaf7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <title> Getting and Cleaning Data: Quiz 1 // 小默的博客 </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">小默的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    <!--增加swiftype搜索功能-->
+    <form class="menu-item menu-item-">
+      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"  />
+    </form>
+    
+    <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+    _st('install','q3oXszmqgzDdD3RJmGAt');
+    </script>
+    <!--增加swiftype搜索功能end-->
+    
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              Getting and Cleaning Data: Quiz 1
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/10/Getting-and-Cleaning-Data-Quiz-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h2 id="Question_1">Question 1</h2><p>The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here: </p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv" target="_blank" rel="external">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv</a></p>
+<p>and load the data into R. The code book, describing the variable names is here:</p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf" target="_blank" rel="external">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf</a></p>
+<p>How many properties are worth $1,000,000 or more?</p>
+<h3 id="R_script:">R script:</h3><figure class="highlight nimrod"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Question 1:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!file.exists(<span class="string">"data"</span>)) &#123;</span><br><span class="line">        dir.create(<span class="string">"data"</span>)</span><br><span class="line">&#125;</span><br><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"</span></span><br><span class="line">download.file(fileUrl, destfile = <span class="string">"./data/06hid.csv"</span>, <span class="keyword">method</span> = <span class="string">"curl"</span>)</span><br><span class="line">dateDownloaded &lt;- date()</span><br><span class="line"></span><br><span class="line"><span class="type">HD</span> &lt;- read.csv(<span class="string">"./data/06hid.csv"</span>)</span><br><span class="line">sum(!<span class="keyword">is</span>.na(<span class="type">HD</span>[<span class="type">HD</span>$<span class="type">VAL</span> &gt;= <span class="number">24</span>, <span class="number">37</span>]))</span><br></pre></td></tr></table></figure>
+<h3 id="Result:">Result:</h3><p><img src="http://qiniupicbed.qiniudn.com/upload/8b81bcebf6bf74304d07c7e0317a5965.png" alt=""></p>
+<a id="more"></a>
+<hr>
+<h2 id="Question_2">Question 2</h2><p>Use the data you loaded from Question 1. Consider the variable FES in the code book. Which of the “tidy data” principles does this variable violate?</p>
+<h3 id="Result:-1">Result:</h3><p><img src="http://qiniupicbed.qiniudn.com/upload/c3d80b846d3225e2dd07c5af9119ec37.png" alt=""></p>
+<hr>
+<h2 id="Question_3">Question 3</h2><p>Download the Excel spreadsheet on Natural Gas Aquisition Program here:</p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx" target="_blank" rel="external">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx</a></p>
+<p>Read rows 18-23 and columns 7-15 into R and assign the result to a variable called:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">dat</span><br></pre></td></tr></table></figure>
+<p>What is the value of:</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">sum</span><span class="params">(dat<span class="variable">$Zip</span> * dat<span class="variable">$Ext</span>, na.rm = T)</span></span></span><br></pre></td></tr></table></figure>
+<p>(original data source: <a href="http://catalog.data.gov/dataset/natural-gas-acquisition-program" target="_blank" rel="external">http://catalog.data.gov/dataset/natural-gas-acquisition-program</a>)</p>
+<h3 id="R_script:-1">R script:</h3><figure class="highlight nimrod"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Question 3:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!file.exists(<span class="string">"data"</span>)) &#123;</span><br><span class="line">        dir.create(<span class="string">"data"</span>)</span><br><span class="line">&#125;</span><br><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx"</span></span><br><span class="line">download.file(fileUrl, destfile = <span class="string">"./data/gas.xlsx"</span>, <span class="keyword">method</span> = <span class="string">"curl"</span>)</span><br><span class="line">dateDownloaded &lt;- date()</span><br><span class="line"></span><br><span class="line">library(xlsx)</span><br><span class="line">rowIndex = <span class="number">18</span> : <span class="number">23</span></span><br><span class="line">colIndex = <span class="number">7</span> : <span class="number">15</span></span><br><span class="line">dat &lt;- read.xlsx(<span class="string">"./data/gas.xlsx"</span>, sheetIndex = <span class="number">1</span>, rowIndex = rowIndex, </span><br><span class="line">          colIndex = colIndex, header = <span class="type">TRUE</span>)</span><br><span class="line">sum(dat$<span class="type">Zip</span> * dat$<span class="type">Ext</span>, na.rm=T)</span><br></pre></td></tr></table></figure>
+<h3 id="Result:-2">Result:</h3><p><img src="http://qiniupicbed.qiniudn.com/upload/5339361b506afa8ce1379711259e263c.png" alt=""></p>
+<hr>
+<h2 id="Question_4">Question 4</h2><p>Read the XML data on Baltimore restaurants from here:</p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml" target="_blank" rel="external">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml</a></p>
+<p>How many restaurants have zipcode 21231?</p>
+<h3 id="R_script:-2">R script:</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">## Question 4:</span><br><span class="line"></span><br><span class="line"># Method 1: remove the letter "s" from "https", and <span class="operator"><span class="keyword">use</span> the <span class="string">"http"</span> instead</span><br><span class="line">library(<span class="keyword">XML</span>)</span><br><span class="line">fileUrl &lt;- <span class="string">"http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"</span></span><br><span class="line">doc &lt;- xmlTreeParse(fileUrl, useInternal = <span class="literal">TRUE</span>)</span><br><span class="line">rootNode &lt;- xmlRoot(doc)</span><br><span class="line"></span><br><span class="line"><span class="keyword">sum</span>(xpathSApply(rootNode, <span class="string">"//zipcode"</span>, xmlValue) == <span class="string">"21231"</span>)</span><br><span class="line"></span><br><span class="line"># Method <span class="number">2</span>: download the <span class="keyword">XML</span> file <span class="keyword">first</span>, <span class="keyword">and</span> <span class="keyword">then</span> <span class="keyword">load</span> it <span class="keyword">into</span> R</span><br><span class="line"><span class="keyword">if</span> (!file.<span class="keyword">exists</span>(<span class="string">"data"</span>)) &#123;</span><br><span class="line">        dir.<span class="keyword">create</span>(<span class="string">"data"</span>)</span><br><span class="line">&#125;</span><br><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"</span></span><br><span class="line">download.file(fileUrl, destfile = <span class="string">"./data/restaurants.xml"</span>, method = <span class="string">"curl"</span>)</span><br><span class="line">dateDownloaded &lt;- <span class="built_in">date</span>()</span><br><span class="line"></span><br><span class="line">library(<span class="keyword">XML</span>)</span><br><span class="line">doc &lt;- xmlTreeParse(<span class="string">"./data/restaurants.xml"</span>, useInternal = <span class="literal">TRUE</span>)</span><br><span class="line">rootNode &lt;- xmlRoot(doc)</span><br><span class="line"></span><br><span class="line"><span class="keyword">sum</span>(xpathSApply(rootNode, <span class="string">"//zipcode"</span>, xmlValue) == <span class="string">"21231"</span>)</span></span><br></pre></td></tr></table></figure>
+<h3 id="Result:-3">Result:</h3><p><img src="http://qiniupicbed.qiniudn.com/upload/a9b215adf99faef0fa41fc1ffe616dd6.png" alt=""></p>
+<hr>
+<h2 id="Question_5">Question 5</h2><p>The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here:</p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv" target="_blank" rel="external">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv</a></p>
+<p>using the fread() command load the data into an R object</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="pseudo">DT</span></span><br></pre></td></tr></table></figure>
+<p>Which of the following is the fastest way to calculate the average value of the variable</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">pwgtp15</span><br></pre></td></tr></table></figure>
+<p>broken down by sex using the data.table package?</p>
+<h3 id="R_script:-3">R script:</h3><figure class="highlight perl"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Question 5:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!file.<span class="keyword">exists</span>(<span class="string">"data"</span>)) &#123;</span><br><span class="line">        dir.create(<span class="string">"data"</span>)</span><br><span class="line">&#125;</span><br><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata<span class="variable">%2Fdata</span><span class="variable">%2Fss06pid</span>.csv"</span></span><br><span class="line">download.file(fileUrl, destfile = <span class="string">"./data/06pid.csv"</span>, method = <span class="string">"curl"</span>)</span><br><span class="line">dateDownloaded &lt;- date()</span><br><span class="line"></span><br><span class="line">DT &lt;- fread(<span class="string">"./data/06pid.csv"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># We can change the value of "race" according to our needs</span></span><br><span class="line">race &lt;- <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This method use the features of data.table.</span></span><br><span class="line"><span class="comment"># replicate(race, function for measuring time(function being tested)[bit of </span></span><br><span class="line"><span class="comment"># function for measuring time result which exploring with str suggests the </span></span><br><span class="line"><span class="comment"># specific user time is in])</span></span><br><span class="line">horse1 &lt;- replicate(race, unname(<span class="keyword">system</span>.<span class="keyword">time</span>(DT[, mean(pwgtp15), by = SEX]))[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># This method will be slowest because it has two parts, and can be leave out of</span></span><br><span class="line"><span class="comment"># the speed race</span></span><br><span class="line"><span class="keyword">system</span>.<span class="keyword">time</span>(&#123;mean(DT[DT<span class="variable">$SEX</span> == <span class="number">1</span>, ]<span class="variable">$pwgtp15</span>); mean(DT[DT<span class="variable">$SEX</span> == <span class="number">2</span>, ]<span class="variable">$pwgtp15</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Wrong coding script: the "by" argument is not used, so </span></span><br><span class="line"><span class="comment"># "mean(DT$pwgtp15, by = DT$SEX)" is just the same as "mean(DT$pwgtp15)"</span></span><br><span class="line">mean(DT<span class="variable">$pwgtp15</span>, by = DT<span class="variable">$SEX</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># This method use tapply() function to solve the problem:</span></span><br><span class="line">horse2 &lt;- replicate(race, unname(<span class="keyword">system</span>.<span class="keyword">time</span>(tapply(DT<span class="variable">$pwgtp15</span>, DT<span class="variable">$SEX</span>, mean)))[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># This method use split() and sapply() functions to solve the problem:</span></span><br><span class="line">horse3 &lt;- replicate(race, unname(<span class="keyword">system</span>.<span class="keyword">time</span>(sapply(<span class="keyword">split</span>(DT<span class="variable">$pwgtp15</span>, DT<span class="variable">$SEX</span>), mean)))[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Wrong coding script: it doesn't meet the need of the question</span></span><br><span class="line">rowMeans(DT)[DT<span class="variable">$SEX</span> == <span class="number">1</span>]</span><br><span class="line">rowMeans(DT)[DT<span class="variable">$SEX</span> == <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Calculate the mean of each horse and choose which is the fastest horse, namely</span></span><br><span class="line"><span class="comment"># the fastest way to calculate the average value of the variable "pwgtp15"</span></span><br><span class="line">mean(horse1)</span><br><span class="line">mean(horse2)</span><br><span class="line">mean(horse3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># All three results show that the horse3 is the fastest horse. That means the </span></span><br><span class="line"><span class="comment"># method using split() and sapply() functions is the most effective way.</span></span><br><span class="line"><span class="comment"># Results 1:</span></span><br><span class="line"><span class="comment"># &gt; mean(horse1)</span></span><br><span class="line"><span class="comment"># [1] 0.001261</span></span><br><span class="line"><span class="comment"># &gt; mean(horse2)</span></span><br><span class="line"><span class="comment"># [1] 0.001615</span></span><br><span class="line"><span class="comment"># &gt; mean(horse3)</span></span><br><span class="line"><span class="comment"># [1] 0.000998</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Results 2:</span></span><br><span class="line"><span class="comment"># &gt; mean(horse1)</span></span><br><span class="line"><span class="comment"># [1] 0.001168</span></span><br><span class="line"><span class="comment"># &gt; mean(horse2)</span></span><br><span class="line"><span class="comment"># [1] 0.001608</span></span><br><span class="line"><span class="comment"># &gt; mean(horse3)</span></span><br><span class="line"><span class="comment"># [1] 0.001074</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Results 3:</span></span><br><span class="line"><span class="comment"># &gt; mean(horse1)</span></span><br><span class="line"><span class="comment"># [1] 0.001207</span></span><br><span class="line"><span class="comment"># &gt; mean(horse2)</span></span><br><span class="line"><span class="comment"># [1] 0.001741</span></span><br><span class="line"><span class="comment"># &gt; mean(horse3)</span></span><br><span class="line"><span class="comment"># [1] 0.00102</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Futhermore:</span></span><br><span class="line"><span class="comment"># We can see how the measure times are based on the batches in the computers </span></span><br><span class="line"><span class="comment"># chip cycle if we just make graphs of each individual result</span></span><br><span class="line">plot(horse1)</span><br><span class="line">plot(horse2)</span><br><span class="line">plot(horse3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># The cumulative average changes:</span></span><br><span class="line">horse1_av &lt;- cumsum(horse1) / seq_along(horse1)</span><br><span class="line">horse2_av &lt;- cumsum(horse2) / seq_along(horse2)</span><br><span class="line">horse3_av &lt;- cumsum(horse3) / seq_along(horse3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot lines (horse1 use red line; horse2 use blue line; horse3 use black line):</span></span><br><span class="line"><span class="comment"># Making sure the y axis is at the right height</span></span><br><span class="line">topY &lt;- max(horse1_av, horse2_av, horse3_av)</span><br><span class="line">lowY &lt;- min(horse1_av, horse2_av, horse3_av)</span><br><span class="line">plot(horse1_av, type = <span class="string">"l"</span>, col = <span class="string">"#FF000099"</span>, ylim = c(lowY, topY), </span><br><span class="line">     xlab = <span class="string">"distance"</span>, ylab = <span class="string">"average time"</span>)</span><br><span class="line">lines(horse2_av, col = <span class="string">"#0000FF99"</span>)</span><br><span class="line">lines(horse3_av, col = <span class="string">"#00000099"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Also, we can plot points of all three horses:</span></span><br><span class="line">topY &lt;- max(horse1, horse2, horse3)</span><br><span class="line">lowY &lt;- min(horse1, horse2, horse3)</span><br><span class="line">plot(horse1, type = <span class="string">"p"</span>, col = <span class="string">"#FF000099"</span>, ylim = c(lowY, topY), </span><br><span class="line">     xlab = <span class="string">"distance"</span>, ylab = <span class="string">"user time"</span>)</span><br><span class="line">points(horse2, col = <span class="string">"#0000FF99"</span>)</span><br><span class="line">points(horse3, col = <span class="string">"#00000099"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Some_plots_during_the_data_analysis">Some plots during the data analysis</h3><p><strong>All these plots use the third time calculation data, matching the Results 3 above.</strong></p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/42c34924226d162418cc13a831cf85ee.png" alt=""></p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/62b5dafc7cfd13aba8f93b94d3ef4508.png" alt=""></p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/bf32063900e50754cf41497967caa74d.png" alt=""></p>
+<p>In the following plot, red line represents average time of horse1, and blue for horse2, black for horse3. We can easily see that the horse3 has the lowest average time.  </p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/97e7ff89fd812e0bed03935cbe3f2454.png" alt=""></p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/beaaef0df654bc3121c4e3700ff49b06.png" alt=""></p>
+<h3 id="Result:-4">Result:</h3><p><img src="http://qiniupicbed.qiniudn.com/upload/629048086c82355bc38dfb8886e3f3ea.png" alt=""></p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/"> #R </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/11/三行情诗和音乐CD/">三行情诗和音乐CD</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/07/狂啃统计学/">狂啃统计学</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+      <div class="comments" id="comments">
+        
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xmuxiaomo" />
+          <p class="site-author-name">xmuxiaomo</p>
+        </div>
+        <p class="site-description motion-element">匆忙世间的闲人。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">349</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/xmuxiaomo" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/u/2457084784" target="_blank">weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_1"><span class="nav-number">1.</span> <span class="nav-text">Question 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#R_script:"><span class="nav-number">1.1.</span> <span class="nav-text">R script:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Result:"><span class="nav-number">1.2.</span> <span class="nav-text">Result:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_2"><span class="nav-number">2.</span> <span class="nav-text">Question 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Result:-1"><span class="nav-number">2.1.</span> <span class="nav-text">Result:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_3"><span class="nav-number">3.</span> <span class="nav-text">Question 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#R_script:-1"><span class="nav-number">3.1.</span> <span class="nav-text">R script:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Result:-2"><span class="nav-number">3.2.</span> <span class="nav-text">Result:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_4"><span class="nav-number">4.</span> <span class="nav-text">Question 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#R_script:-2"><span class="nav-number">4.1.</span> <span class="nav-text">R script:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Result:-3"><span class="nav-number">4.2.</span> <span class="nav-text">Result:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_5"><span class="nav-number">5.</span> <span class="nav-text">Question 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#R_script:-3"><span class="nav-number">5.1.</span> <span class="nav-text">R script:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Some_plots_during_the_data_analysis"><span class="nav-number">5.2.</span> <span class="nav-text">Some plots during the data analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Result:-4"><span class="nav-number">5.3.</span> <span class="nav-text">Result:</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2022
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">xmuxiaomo</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
+    });
+  </script>
+
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+  
+
+  
+
+    
+      
+    
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xmuxiaomo';
+      var disqus_identifier = '2015/07/10/Getting-and-Cleaning-Data-Quiz-1/';
+      var disqus_url = 'http://xmuxiaomo.github.io/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/';
+
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  
+
+
+
+
+  
+</body>
+</html>

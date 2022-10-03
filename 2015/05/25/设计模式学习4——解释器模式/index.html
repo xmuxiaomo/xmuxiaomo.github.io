@@ -1,0 +1,1010 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+    <meta name="description" content="匆忙世间的闲人。" />
+
+
+
+	<meta name="keywords" content="设计模式," />
+	
+
+
+    <link rel="alternate" href="/atom.xml" title="小默的博客" type="application/atom+xml" />
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?99006bde90fd9672ff2dd2ebcd1aaf7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <title> 设计模式学习（四）——解释器模式 // 小默的博客 </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">小默的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    <!--增加swiftype搜索功能-->
+    <form class="menu-item menu-item-">
+      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"  />
+    </form>
+    
+    <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+    _st('install','q3oXszmqgzDdD3RJmGAt');
+    </script>
+    <!--增加swiftype搜索功能end-->
+    
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              设计模式学习（四）——解释器模式
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-25
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/25/设计模式学习4——解释器模式/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/25/设计模式学习4——解释器模式/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h1 id="解释器模式定义">解释器模式定义</h1><p><strong>解释器模式（Interpreter Pattern）</strong>描述了如何为语言定义一个文法，如何在该语言中表示一个句子，以及如何解释这些句子。这里的语言意思是使用规定格式和语法的代码。</p>
+<p>简单说来，解释器模式用来为语言创建解释器。</p>
+<a id="more"></a>
+<p>如果一种特定类型的问题发生的频率足够高，那么可能就值得将该问题的各个实例表述为一个简单语言中的句子，这样就可以构建一个解释器，该解释器通过解释这些句子来解决该问题，而且当文法简单、效率不是关键问题的时候效果最好。</p>
+<p>解释器模式将一个语法规则表示成一个类，便于实现。而且，因为语法由许多类表示，所以我们可以轻易地改变和扩展此语言。</p>
+<hr>
+<h1 id="解释器模式结构图">解释器模式结构图</h1><p><img src="http://qiniupicbed.qiniudn.com/upload/50604a3a78b166a7b7e375a9aaa6574f.png" alt=""></p>
+<p>图中：</p>
+<ul>
+<li><p>AbstractExpression表示抽象表达式，它声明一个抽象的解释操作，该接口为抽象语法树上所有的节点所共享；</p>
+</li>
+<li><p>TerminalExpression表示终结符表达式，它实现与文法中的终结符相关联的解释操作，语言中每一个句子的每个终结符都属于该类的一个实例；</p>
+</li>
+<li><p>NonterminalExpression表示非终结符表达式，它实现了文法中的非终结符的解释操作，在解释过程中一般需要应用递归的方式对句子进行处理；</p>
+</li>
+<li><p>Context表示上下文（环境），它包含了解释器之外一些其他的全局信息；</p>
+</li>
+<li><p>Client表示客户端，它用于构建表示该文法定义的语言中的一个特定的句子的抽象语法树，该语法树由终结符表达式（叶子节点）和非终结符表达式（中间节点）组成，并且Client负责调用解释操作。</p>
+</li>
+</ul>
+<hr>
+<h1 id="解释器模式实例——机器人控制程序">解释器模式实例——机器人控制程序</h1><h2 id="实例说明">实例说明</h2><p>某机器人控制程序包含一些简单的英文指令，其文法规则如下：</p>
+<p>expression : : = direction action distance | composite</p>
+<p>composite : : = expression ‘and’ expression</p>
+<p>direction : : = ‘up’ | ‘down’ | ‘left’ | ‘right’</p>
+<p>action : : = ‘move’ | ‘run’</p>
+<p>distance : : = an integer //一个整数值</p>
+<p>如输入：up move 5，则输出“向上移动5个单位”；输入：down run 10 and left move 20，则输出“向下快速移动10个单位再向左移动20个单位”。</p>
+<p>现使用解释器模式来设计该程序并模拟实现。</p>
+<h2 id="实例类图">实例类图</h2><p><img src="http://qiniupicbed.qiniudn.com/upload/bd754e3904335e3f9973218f08f1878e.png" alt=""></p>
+<p>实例类图中与解释器模式结构图对应的类主要有：</p>
+<ul>
+<li><p>AbstractNode充当抽象表达式角色；</p>
+</li>
+<li><p>DirectionNode、ActionNode和DistanceNode充当终结符表达式角色；</p>
+</li>
+<li><p>AndNode和SentenceNode充当非终结符表达式角色；</p>
+</li>
+<li><p><em>InstructionHandler为指令处理类，充当工具类角色。</em></p>
+</li>
+</ul>
+<h2 id="实例代码">实例代码</h2><p>AbstractNode.java:</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//抽象表达式</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">AbstractNode</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">interpret</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>DirectionNode.java:</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方向解释：终结符表达式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirectionNode</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractNode</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">String</span> direction;</span><br><span class="line">	</span><br><span class="line">	public <span class="type">DirectionNode</span>(<span class="type">String</span> direction)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>.direction = direction;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public <span class="type">String</span> interpret()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(direction.equalsIgnoreCase(<span class="string">"up"</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"向上"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(direction.equalsIgnoreCase(<span class="string">"down"</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"向下"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(direction.equalsIgnoreCase(<span class="string">"left"</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"向左"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(direction.equalsIgnoreCase(<span class="string">"right"</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"向右"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"无效指令"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ActionNode.java:</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动作解释：终结符表达式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ActionNode</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractNode</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">String</span> action;</span><br><span class="line">	</span><br><span class="line">	public <span class="type">ActionNode</span>(<span class="type">String</span> action)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>.action = action;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public <span class="type">String</span> interpret()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(action.equalsIgnoreCase(<span class="string">"move"</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"移动"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(action.equalsIgnoreCase(<span class="string">"run"</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"快速移动"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"无效指令"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>DistanceNode.java:</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="comment">//距离解释：终结符表达式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DistanceNode</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractNode</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">String</span> distance;</span><br><span class="line">	</span><br><span class="line">	public <span class="type">DistanceNode</span>(<span class="type">String</span> distance)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>.distance = distance;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public <span class="type">String</span> interpret()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.distance;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AndNode.java:</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="comment">//And解释：非终结符表达式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AndNode</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractNode</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">AbstractNode</span> left;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">AbstractNode</span> right;</span><br><span class="line">	public <span class="type">AndNode</span>(<span class="type">AbstractNode</span> left,<span class="type">AbstractNode</span> right)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>.left = left;</span><br><span class="line">		<span class="keyword">this</span>.right = right;</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="type">String</span> interpret()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> left.interpret() + <span class="string">"再"</span> + right.interpret();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SentenceNode.java:</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="comment">//简单句子解释：非终结符表达式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SentenceNode</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractNode</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">AbstractNode</span> direction;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">AbstractNode</span> action;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">AbstractNode</span> distance;</span><br><span class="line">	public <span class="type">SentenceNode</span>(<span class="type">AbstractNode</span> direction,<span class="type">AbstractNode</span> action,<span class="type">AbstractNode</span> distance)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>.direction = direction;</span><br><span class="line">		<span class="keyword">this</span>.action = action;</span><br><span class="line">		<span class="keyword">this</span>.distance = distance;</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="type">String</span> interpret()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> direction.interpret() + action.interpret() + distance.interpret();</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>InstructionHandler.java:</p>
+<figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//指令处理类：工具类</span></span><br><span class="line">class InstructionHandler</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">private</span> AbstractNode node;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> handle(<span class="keyword">String</span> instruction)</span><br><span class="line">    &#123;</span><br><span class="line">    	AbstractNode left=<span class="keyword">null</span>,right=<span class="keyword">null</span>;</span><br><span class="line">    	AbstractNode direction=<span class="keyword">null</span>,action=<span class="keyword">null</span>,distance=<span class="keyword">null</span>;</span><br><span class="line">    	Stack stack=<span class="keyword">new</span> Stack(); </span><br><span class="line">    	<span class="keyword">String</span>[] words=instruction.<span class="built_in">split</span>(<span class="string">" "</span>); <span class="comment">//以空格分隔字符串</span></span><br><span class="line">    	<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;words.length;i++)</span><br><span class="line">    	&#123;</span><br><span class="line">    		<span class="keyword">if</span>(words[i].equalsIgnoreCase(<span class="string">"and"</span>))</span><br><span class="line">    		&#123;</span><br><span class="line">    			left=(AbstractNode)stack.pop();</span><br><span class="line">    		    <span class="keyword">String</span> word1=words[++i];</span><br><span class="line">    		    direction=<span class="keyword">new</span> DirectionNode(word1);</span><br><span class="line">    		    <span class="keyword">String</span> word2=words[++i];</span><br><span class="line">    		    action=<span class="keyword">new</span> ActionNode(word2);</span><br><span class="line">    		    <span class="keyword">String</span> word3=words[++i];</span><br><span class="line">    		    distance=<span class="keyword">new</span> DistanceNode(word3);</span><br><span class="line">    		    right=<span class="keyword">new</span> SentenceNode(direction,action,distance);</span><br><span class="line">    			stack.push(<span class="keyword">new</span> AndNode(left,right));</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">else</span> </span><br><span class="line">    		&#123;	</span><br><span class="line">    		    <span class="keyword">String</span> word1=words[i];</span><br><span class="line">    		    direction=<span class="keyword">new</span> DirectionNode(word1);</span><br><span class="line">    		    <span class="keyword">String</span> word2=words[++i];</span><br><span class="line">    		    action=<span class="keyword">new</span> ActionNode(word2);</span><br><span class="line">    		    <span class="keyword">String</span> word3=words[++i];</span><br><span class="line">    		    distance=<span class="keyword">new</span> DistanceNode(word3);</span><br><span class="line">    		    left=<span class="keyword">new</span> SentenceNode(direction,action,distance);</span><br><span class="line">    		    stack.push(left);</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">this</span>.node=(AbstractNode)stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">String</span> output()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">String</span> result = node.interpret();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Client.java:</p>
+<figure class="highlight aspectj"><table><tr><td class="code"><pre><span class="line"><span class="comment">//客户端测试类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		String instruction = <span class="string">"up move 5 and down run 10 and left move 5"</span>;</span><br><span class="line">		InstructionHandler <span class="keyword">handler</span> = <span class="keyword">new</span> InstructionHandler();</span><br><span class="line">		<span class="keyword">handler</span>.handle(instruction);</span><br><span class="line">		String outString;</span><br><span class="line">		outString = <span class="keyword">handler</span>.output();</span><br><span class="line">		System.out.println(outString);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="运行结果">运行结果</h2><p><img src="http://qiniupicbed.qiniudn.com/upload/f639f1952ffb7491d290b91aab630f53.png" alt=""></p>
+<h2 id="附加描述">附加描述</h2><p>在本实例中，我们将一个DirectionNode（方向节点）、一个ActionNode（动作节点）和一个DistanceNode（距离节点）组成一个SentenceNode（句子节点）。句子节点再通过and连接在一起，形成更加复杂的结构。本实例的工具类InstructionHandler用于对输入指令进行处理，将输入指令分割为字符串数组，将第1个、第2个和第3个单词组合成一个句子，并存入栈中；如果发现有单词and，则先将原先栈中所存句子取出来作为and的左表达式，再将and后的第1个、第2个和第3个单词组合成一个句子作为and的右表达式，然后将组合而成的AndNode节点存入栈中。以此类推，直到整个指令解析结束。</p>
+<p>我们可以通过抽象语法树来表示解析过程，如指令 down run 10 and left move 20 对应的抽象语法树如下图所示。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/32b7a151d69084f84d7ebaafb25c3f00.png" alt=""></p>
+<hr>
+<h1 id="后话">后话</h1><p>通过学习解释器模式，让我对树结构的用法有了进一步的理解。</p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/"> #设计模式 </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/25/设计模式学习5——备忘录模式/">设计模式学习（五）——备忘录模式</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/25/设计模式学习3——访问者模式/">设计模式学习（三）——访问者模式</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+      <div class="comments" id="comments">
+        
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xmuxiaomo" />
+          <p class="site-author-name">xmuxiaomo</p>
+        </div>
+        <p class="site-description motion-element">匆忙世间的闲人。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">349</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/xmuxiaomo" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/u/2457084784" target="_blank">weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解释器模式定义"><span class="nav-number">1.</span> <span class="nav-text">解释器模式定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释器模式结构图"><span class="nav-number">2.</span> <span class="nav-text">解释器模式结构图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释器模式实例——机器人控制程序"><span class="nav-number">3.</span> <span class="nav-text">解释器模式实例——机器人控制程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例说明"><span class="nav-number">3.1.</span> <span class="nav-text">实例说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例类图"><span class="nav-number">3.2.</span> <span class="nav-text">实例类图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例代码"><span class="nav-number">3.3.</span> <span class="nav-text">实例代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果"><span class="nav-number">3.4.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加描述"><span class="nav-number">3.5.</span> <span class="nav-text">附加描述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后话"><span class="nav-number">4.</span> <span class="nav-text">后话</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2022
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">xmuxiaomo</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
+    });
+  </script>
+
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+  
+
+  
+
+    
+      
+    
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xmuxiaomo';
+      var disqus_identifier = '2015/05/25/设计模式学习4——解释器模式/';
+      var disqus_url = 'http://xmuxiaomo.github.io/2015/05/25/设计模式学习4——解释器模式/';
+
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  
+
+
+
+
+  
+</body>
+</html>

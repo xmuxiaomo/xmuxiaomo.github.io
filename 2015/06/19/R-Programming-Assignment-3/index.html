@@ -1,0 +1,997 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+    <meta name="description" content="匆忙世间的闲人。" />
+
+
+
+	<meta name="keywords" content="R," />
+	
+
+
+    <link rel="alternate" href="/atom.xml" title="小默的博客" type="application/atom+xml" />
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?99006bde90fd9672ff2dd2ebcd1aaf7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <title> R Programming Assignment 3: Hospital Quality // 小默的博客 </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">小默的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    <!--增加swiftype搜索功能-->
+    <form class="menu-item menu-item-">
+      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"  />
+    </form>
+    
+    <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+    _st('install','q3oXszmqgzDdD3RJmGAt');
+    </script>
+    <!--增加swiftype搜索功能end-->
+    
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              R Programming Assignment 3: Hospital Quality
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-06-19
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/19/R-Programming-Assignment-3/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/19/R-Programming-Assignment-3/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h2 id="Introduction">Introduction</h2><p>Download the file <a href="https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2FProgAssignment3-data.zip" target="_blank" rel="external">ProgAssignment3-data.zip</a> file containing the data for Programming Assignment 3 from the Coursera web site. Unzip the file in a directory that will serve as your working directory. When you start up R make sure to change your working directory to the directory where you unzipped the data.</p>
+<p>The data for this assignment come from the Hospital Compare web site (<a href="http://hospitalcompare.hhs.gov" target="_blank" rel="external">http://hospitalcompare.hhs.gov</a>) run by the U.S. Department of Health and Human Services. The purpose of the web site is to provide data and information about the quality of care at over 4,000 Medicare-certified hospitals in the U.S. This dataset essentially covers all major U.S. hospitals. This dataset is used for a variety of purposes, including determining whether hospitals should be fined for not providing high quality care to patients (see <a href="http://goo.gl/jAXFX" target="_blank" rel="external">http://goo.gl/jAXFX</a> for some background on this particular topic).</p>
+<a id="more"></a>
+<p>The Hospital Compare web site contains a lot of data and we will only look at a small subset for this assignment. The zip file for this assignment contains three files:</p>
+<ul>
+<li><strong>outcome-of-care-measures.csv</strong>: Contains information about 30-day mortality and readmission rates for heart attacks, heart failure, and pneumonia for over 4,000 hospitals.</li>
+<li><strong>hospital-data.csv</strong>: Contains information about each hospital.</li>
+<li><strong>Hospital_Revised_Flatfiles.pdf</strong>: Descriptions of the variables in each file (i.e the code book).</li>
+</ul>
+<p>A description of the variables in each of the files is in the included PDF file named <strong>Hospital_Revised_Flatfiles.pdf</strong>. This document contains information about many other files that are not included with this programming assignment. You will want to focus on the variables for Number 19 (“Outcome of Care Measures.csv”) and Number 11 (“Hospital Data.csv”). You may find it useful to print out this document (at least the pages for Tables 19 and 11) to have next to you while you work on this assignment. In particular, the numbers of the variables for each table indicate column indices in each table (i.e. “Hospital Name” is column 2 in the <strong>outcome-of-care-measures.csv</strong> file).</p>
+<h2 id="Part_1:_Plot_the_30-day_mortality_rates_for_heart_attack">Part 1: Plot the 30-day mortality rates for heart attack</h2><p>Read the outcome data into R via the <strong>read.csv</strong> function and look at the first few rows.</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">&gt; outcome &lt;- read.<span class="function"><span class="title">csv</span><span class="params">(<span class="string">"outcome-of-care-measures.csv"</span>, colClasses = <span class="string">"character"</span>)</span></span></span><br><span class="line">&gt; <span class="function"><span class="title">head</span><span class="params">(outcome)</span></span></span><br></pre></td></tr></table></figure>
+<p>There are many columns in this dataset. You can see how many by typing <strong>ncol(outcome)</strong> (you can see the number of rows with the <strong>nrow</strong> function). In addition, you can see the names of each column by typing <strong>names(outcome)</strong> (the names are also in the PDF document).</p>
+<p>To make a simple histogram of the 30-day death rates from heart attack (column 11 in the outcome dataset), run</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">&gt; outcome[, <span class="number">11</span>] &lt;- <span class="keyword">as</span>.<span class="keyword">numeric</span>(outcome[, <span class="number">11</span>])</span><br><span class="line">&gt; <span class="comment">## You may get a warning about NAs being introduced; that is okay</span></span><br><span class="line">&gt; hist(outcome[, <span class="number">11</span>])</span><br></pre></td></tr></table></figure>
+<p>Because we originally read the data in as character (by specifying colClasses = “character” we need to coerce the column to be numeric. You may get a warning about NAs being introduced but that is okay.</p>
+<p><strong>There is nothing to submit for this part.</strong></p>
+<h2 id="Part_2:_Finding_the_best_hospital_in_a_state">Part 2: Finding the best hospital in a state</h2><p>Write a function called best that take two arguments: the 2-character abbreviated name of a state and an outcome name. The function reads the <strong>outcome-of-care-measures.csv</strong> file and returns a character vector with the name of the hospital that has the best (i.e. lowest) 30-day mortality for the specified outcome in that state. The hospital name is the name provided in the <strong>Hospital.Name</strong> variable. The outcomes can be one of “heart attack”, “heart failure”, or “pneumonia”. Hospitals that do not have data on a particular outcome should be excluded from the set of hospitals when deciding the rankings.</p>
+<p><strong>Handling ties.</strong> If there is a tie for the best hospital for a given outcome, then the hospital names should be sorted in alphabetical order and the first hospital in that set should be chosen (i.e. if hospitals “b”, “c”, and “f” are tied for best, then hospital “b” should be returned).</p>
+<p>The function should use the following template.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">best &lt;- <span class="function"><span class="keyword">function</span><span class="params">(state, outcome)</span> </span>&#123;</span><br><span class="line">	<span class="comment">## Read outcome data</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">## Check that state and outcome are valid</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">## Return hospital name in that state with lowest 30-day death</span></span><br><span class="line">	<span class="comment">## rate</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The function should check the validity of its arguments. If an invalid <strong>state</strong> value is passed to <strong>best</strong>, the function should throw an error via the <strong>stop</strong> function with the exact message “invalid state”. If an invalid <strong>outcome</strong> value is passed to <strong>best</strong>, the function should throw an error via the <strong>stop</strong> function with the exact message “invalid outcome”.</p>
+<p>Here is some sample output from the function.</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">&gt; <span class="function"><span class="title">source</span><span class="params">(<span class="string">"best.R"</span>)</span></span></span><br><span class="line">&gt; <span class="function"><span class="title">best</span><span class="params">(<span class="string">"TX"</span>, <span class="string">"heart attack"</span>)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"CYPRESS FAIRBANKS MEDICAL CENTER"</span></span><br><span class="line">&gt; <span class="function"><span class="title">best</span><span class="params">(<span class="string">"TX"</span>, <span class="string">"heart failure"</span>)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"FORT DUNCAN MEDICAL CENTER"</span></span><br><span class="line">&gt; <span class="function"><span class="title">best</span><span class="params">(<span class="string">"MD"</span>, <span class="string">"heart attack"</span>)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"JOHNS HOPKINS HOSPITAL, THE"</span></span><br><span class="line">&gt; <span class="function"><span class="title">best</span><span class="params">(<span class="string">"MD"</span>, <span class="string">"pneumonia"</span>)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"GREATER BALTIMORE MEDICAL CENTER"</span></span><br><span class="line">&gt; <span class="function"><span class="title">best</span><span class="params">(<span class="string">"BB"</span>, <span class="string">"heart attack"</span>)</span></span></span><br><span class="line">Error <span class="keyword">in</span> <span class="function"><span class="title">best</span><span class="params">(<span class="string">"BB"</span>, <span class="string">"heart attack"</span>)</span></span> : invalid state</span><br><span class="line">&gt; <span class="function"><span class="title">best</span><span class="params">(<span class="string">"NY"</span>, <span class="string">"hert attack"</span>)</span></span></span><br><span class="line">Error <span class="keyword">in</span> <span class="function"><span class="title">best</span><span class="params">(<span class="string">"NY"</span>, <span class="string">"hert attack"</span>)</span></span> : invalid outcome</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>Save your code for this function to a file named <strong>best.R</strong>.</p>
+<h2 id="Part_3:_Ranking_hospitals_by_outcome_in_a_state">Part 3: Ranking hospitals by outcome in a state</h2><p>Write a function called <strong>rankhospital</strong> that takes three arguments: the 2-character abbreviated name of a state (<strong>state</strong>), an outcome (<strong>outcome</strong>), and the ranking of a hospital in that state for that outcome (<strong>num</strong>). The function reads the <strong>outcome-of-care-measures.csv</strong> file and returns a character vector with the name of the hospital that has the ranking specified by the <strong>num</strong> argument. For example, the call</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">&gt; <span class="function"><span class="title">rankhospital</span><span class="params">(<span class="string">"MD"</span>, <span class="string">"heart failure"</span>, <span class="number">5</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>would return a character vector containing the name of the hospital with the 5th lowest 30-day death rate for heart failure. The <strong>num</strong> argument can take values “best”, “worst”, or an integer indicating the ranking (smaller numbers are better). If the number given by <strong>num</strong> is larger than the number of hospitals in that state, then the function should return <strong>NA</strong>. Hospitals that do not have data on a particular outcome should be excluded from the set of hospitals when deciding the rankings.</p>
+<p><strong>Handling ties</strong>. It may occur that multiple hospitals have the same 30-day mortality rate for a given cause of death. In those cases ties should be broken by using the hospital name. For example, in Texas (“TX”), the hospitals with lowest 30-day mortality rate for heart failure are shown here.</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">&gt; head(texas)</span><br><span class="line">                         Hospital<span class="variable">.Name</span> Rate Rank</span><br><span class="line"><span class="number">3935</span>       FORT DUN<span class="built_in">CAN</span> MEDI<span class="built_in">CAL</span> CENTER  <span class="number">8.1</span>   <span class="number">1</span></span><br><span class="line"><span class="number">4085</span>  TOMBALL REGIONAL MEDI<span class="built_in">CAL</span> CENTER  <span class="number">8.5</span>   <span class="number">2</span></span><br><span class="line"><span class="number">4103</span> CYPRESS FAIRBANKS MEDI<span class="built_in">CAL</span> CENTER  <span class="number">8.7</span>   <span class="number">3</span></span><br><span class="line"><span class="number">3954</span>           DETAR HOSPITAL N<span class="built_in">AVARRO</span>  <span class="number">8.7</span>   <span class="number">4</span></span><br><span class="line"><span class="number">4010</span>           METHODIST HOSPITAL,THE  <span class="number">8.8</span>   <span class="number">5</span></span><br><span class="line"><span class="number">3962</span>  MISSION REGIONAL MEDI<span class="built_in">CAL</span> CENTER  <span class="number">8.8</span>   <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>Note that Cypress Fairbanks Medical Center and Detar Hospital Navarro both have the same 30-day rate (8.7). However, because Cypress comes before Detar alphabetically, Cypress is ranked number 3 in this scheme and Detar is ranked number 4. One can use the order function to sort multiple vectors in this manner (i.e. where one vector is used to break ties in another vector).</p>
+<p>The function should use the following template.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">rankhospital &lt;- <span class="function"><span class="keyword">function</span><span class="params">(state, outcome, num = <span class="string">"best"</span>)</span> </span>&#123;</span><br><span class="line">	<span class="comment">## Read outcome data</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">## Check that state and outcome are valid</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">## Return hospital name in that state with the given rank</span></span><br><span class="line">	<span class="comment">## 30-day death rate</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The function should check the validity of its arguments. If an invalid <strong>state</strong> value is passed to <strong>rankhospital</strong>, the function should throw an error via the <strong>stop</strong> function with the exact message “invalid state”. If an invalid <strong>outcome</strong> value is passed to <strong>rankhospital</strong>, the function should throw an error via the <strong>stop</strong> function with the exact message “invalid outcome”.</p>
+<p>Here is some sample output from the function.</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">&gt; <span class="function"><span class="title">source</span><span class="params">(<span class="string">"rankhospital.R"</span>)</span></span></span><br><span class="line">&gt; <span class="function"><span class="title">rankhospital</span><span class="params">(<span class="string">"TX"</span>, <span class="string">"heart failure"</span>, <span class="number">4</span>)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"DETAR HOSPITAL NAVARRO"</span></span><br><span class="line">&gt; <span class="function"><span class="title">rankhospital</span><span class="params">(<span class="string">"MD"</span>, <span class="string">"heart attack"</span>, <span class="string">"worst"</span>)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"HARFORD MEMORIAL HOSPITAL"</span></span><br><span class="line">&gt; <span class="function"><span class="title">rankhospital</span><span class="params">(<span class="string">"MN"</span>, <span class="string">"heart attack"</span>, <span class="number">5000</span>)</span></span></span><br><span class="line">[<span class="number">1</span>] NA</span><br></pre></td></tr></table></figure>
+<p>Save your code for this function to a file named <strong>rankhospital.R</strong>.</p>
+<h2 id="Part_4:_Ranking_hospitals_in_all_states">Part 4: Ranking hospitals in all states</h2><p>Write a function called <strong>rankall</strong> that takes two arguments: an outcome name (<strong>outcome</strong>) and a hospital ranking (<strong>num</strong>). The function reads the <strong>outcome-of-care-measures.csv</strong> file and returns a 2-column data frame containing the hospital in each state that has the ranking specified in <strong>num</strong>. For example the function call <strong>rankall(“heart attack”, “best”)</strong> would return a data frame containing the names of the hospitals that are the best in their respective states for 30-day heart attack death rates. The function should return a value for every state (some may be <strong>NA</strong>). The first column in the data frame is named <strong>hospital</strong>, which contains the hospital name, and the second column is named <strong>state</strong>, which contains the 2-character abbreviation for the state name. Hospitals that do not have data on a particular outcome should be excluded from the set of hospitals when deciding the rankings.</p>
+<p><strong>Handling ties</strong>. The <strong>rankall</strong> function should handle ties in the 30-day mortality rates in the same way that the <strong>rankhospital</strong> function handles ties.</p>
+<p>The function should use the following template.</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">rankall &lt;- <span class="function"><span class="keyword">function</span><span class="params">(outcome, num = <span class="string">"best"</span>)</span> </span>&#123;</span><br><span class="line">	<span class="comment">## Read outcome data</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">## Check that outcome is valid</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">## For each state, find the hospital of the given rank</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">## Return a data frame with the hospital names and the</span></span><br><span class="line">	<span class="comment">## (abbreviated) state name</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>NOTE</strong>: For the purpose of this part of the assignment (and for efficiency), your function should NOT call the <strong>rankhospital</strong> function from the previous section.</p>
+<p>The function should check the validity of its arguments. If an invalid <strong>outcome</strong> value is passed to <strong>rankall</strong>, the function should throw an error via the <strong>stop</strong> function with the exact message “invalid outcome”. The <strong>num</strong> variable can take values “best”, “worst”, or an integer indicating the ranking (smaller numbers are better). If the number given by <strong>num</strong> is larger than the number of hospitals in that state, then the function should return <strong>NA</strong>.</p>
+<p>Here is some sample output from the function.</p>
+<figure class="highlight pf"><table><tr><td class="code"><pre><span class="line">&gt; source(<span class="string">"rankall.R"</span>)</span><br><span class="line">&gt; head(rankall(<span class="string">"heart attack"</span>, <span class="number">20</span>), <span class="number">10</span>)</span><br><span class="line">                              hospital <span class="keyword">state</span></span><br><span class="line">AK                                <span class="variable">&lt;NA&gt;</span>   AK</span><br><span class="line">AL      D W MCMILLAN MEMORIAL HOSPITAL   AL</span><br><span class="line">AR   ARKANSAS METHODIST MEDICAL CENTER   AR</span><br><span class="line">AZ JOHN C LINCOLN DEER VALLEY HOSPITAL   AZ</span><br><span class="line">CA               SHERMAN OAKS HOSPITAL   CA</span><br><span class="line">CO            SKY RIDGE MEDICAL CENTER   CO</span><br><span class="line">CT             MIDSTATE MEDICAL CENTER   CT</span><br><span class="line">DC                                <span class="variable">&lt;NA&gt;</span>   DC</span><br><span class="line">DE                                <span class="variable">&lt;NA&gt;</span>   DE</span><br><span class="line">FL      SOUTH FLORIDA BAPTIST HOSPITAL   FL</span><br><span class="line">&gt; tail(rankall(<span class="string">"pneumonia"</span>, <span class="string">"worst"</span>), <span class="number">3</span>)</span><br><span class="line">                                     hospital <span class="keyword">state</span></span><br><span class="line">WI MAYO CLINIC HEALTH SYSTEM - NORTHLAND, INC   WI</span><br><span class="line">WV                     PLATEAU MEDICAL CENTER   WV</span><br><span class="line">WY           NORTH BIG HORN HOSPITAL DISTRICT   WY</span><br><span class="line">&gt; tail(rankall(<span class="string">"heart failure"</span>), <span class="number">10</span>)</span><br><span class="line">                                                            hospital <span class="keyword">state</span></span><br><span class="line">TN                         WELLMONT HAWKINS COUNTY MEMORIAL HOSPITAL   TN</span><br><span class="line">TX                                        FORT DUNCAN MEDICAL CENTER   TX</span><br><span class="line">UT VA SALT LAKE CITY HEALTHCARE - GEORGE E. WAHLEN VA MEDICAL CENTER   UT</span><br><span class="line">VA                                          SENTARA POTOMAC HOSPITAL   VA</span><br><span class="line">VI                            GOV JUAN F LUIS HOSPITAL &amp; MEDICAL CTR   VI</span><br><span class="line">VT                                              SPRINGFIELD HOSPITAL   VT</span><br><span class="line">WA                                         HARBORVIEW MEDICAL CENTER   WA</span><br><span class="line">WI                                    AURORA ST LUKES MEDICAL CENTER   WI</span><br><span class="line">WV                                         FAIRMONT GENERAL HOSPITAL   WV</span><br><span class="line">WY                                        CHEYENNE VA MEDICAL CENTER   WY</span><br></pre></td></tr></table></figure>
+<p>Save your code for this function to a file named <strong>rankall.R</strong>.</p>
+<hr>
+<h2 id="My_Solution">My Solution</h2><figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line"><span class="comment">##Part 2: best.R:</span></span><br><span class="line"></span><br><span class="line">best &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">state</span>, <span class="title">outcome</span>) &#123;</span>        <span class="comment">## Read outcome data</span>        data &lt;- <span class="built_in">read</span>.csv(<span class="string">"outcome-of-care-measures.csv"</span>)                <span class="comment">## Check that state and outcome are valid</span>        states &lt;- levels(data[, <span class="number">7</span>])[data[, <span class="number">7</span>]]        state_flag &lt;- <span class="constant">FALSE</span>        <span class="keyword">for</span> (i <span class="operator">in</span> <span class="number">1</span>:<span class="built_in">length</span>(states)) &#123;                <span class="keyword">if</span> (state == states[i]) &#123;                        state_flag &lt;- <span class="constant">TRUE</span>                &#125;        &#125;        <span class="keyword">if</span> (!state_flag) &#123;                <span class="built_in">stop</span> (<span class="string">"invalid state"</span>)        &#125;         <span class="keyword">if</span> (!((outcome == <span class="string">"heart attack"</span>) | (outcome == <span class="string">"heart failure"</span>)            | (outcome == <span class="string">"pneumonia"</span>))) &#123;                <span class="built_in">stop</span> (<span class="string">"invalid outcome"</span>)        &#125;                <span class="comment">## Return hospital name in that state with lowest 30-day death rate</span>        col &lt;- <span class="keyword">if</span> (outcome == <span class="string">"heart attack"</span>) &#123;                <span class="number">11</span>        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (outcome == <span class="string">"heart failure"</span>) &#123;                <span class="number">17</span>        &#125; <span class="keyword">else</span> &#123;                <span class="number">23</span>        &#125;                data[, col] &lt;- suppressWarnings(<span class="keyword">as</span>.<span class="keyword">numeric</span>(levels(data[, col])[data[, col]]))        data[, <span class="number">2</span>] &lt;- <span class="keyword">as</span>.<span class="keyword">character</span>(data[, <span class="number">2</span>])        statedata &lt;- data[grep(state, data$State), ]        orderdata &lt;- statedata[order(statedata[, col], statedata[, <span class="number">2</span>], na.<span class="keyword">last</span> = NA), ]        orderdata[<span class="number">1</span>, <span class="number">2</span>]&#125;<span class="comment">##Part 3: rankhospital.R:</span></span><br><span class="line"></span><br><span class="line">rankhospital &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">state</span>, <span class="title">outcome</span>, <span class="title">num</span> = <span class="string">"best"</span>) &#123;</span>        <span class="comment">## Read outcome data</span>        data &lt;- <span class="built_in">read</span>.csv(<span class="string">"outcome-of-care-measures.csv"</span>)        <span class="comment">## Check that state and outcome are valid</span>        states &lt;- levels(data[, <span class="number">7</span>])[data[, <span class="number">7</span>]]        state_flag &lt;- <span class="constant">FALSE</span>        <span class="keyword">for</span> (i <span class="operator">in</span> <span class="number">1</span>:<span class="built_in">length</span>(states)) &#123;                <span class="keyword">if</span> (state == states[i]) &#123;                        state_flag &lt;- <span class="constant">TRUE</span>                &#125;        &#125;        <span class="keyword">if</span> (!state_flag) &#123;                <span class="built_in">stop</span> (<span class="string">"invalid state"</span>)        &#125;         <span class="keyword">if</span> (!((outcome == <span class="string">"heart attack"</span>) | (outcome == <span class="string">"heart failure"</span>)              | (outcome == <span class="string">"pneumonia"</span>))) &#123;                <span class="built_in">stop</span> (<span class="string">"invalid outcome"</span>)        &#125;        <span class="comment">## Return hospital name in that state with the given rank 30-day death </span>        <span class="comment">## rate</span>        col &lt;- <span class="keyword">if</span> (outcome == <span class="string">"heart attack"</span>) &#123;                <span class="number">11</span>        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (outcome == <span class="string">"heart failure"</span>) &#123;                <span class="number">17</span>        &#125; <span class="keyword">else</span> &#123;                <span class="number">23</span>        &#125;                data[, col] &lt;- suppressWarnings(<span class="keyword">as</span>.<span class="keyword">numeric</span>(levels(data[, col])[data[, col]]))        data[, <span class="number">2</span>] &lt;- <span class="keyword">as</span>.<span class="keyword">character</span>(data[, <span class="number">2</span>])        statedata &lt;- data[grep(state, data$State), ]        orderdata &lt;- statedata[order(statedata[, col], statedata[, <span class="number">2</span>], na.<span class="keyword">last</span> = NA), ]        <span class="keyword">if</span>(<span class="built_in">num</span> == <span class="string">"best"</span>) &#123;                orderdata[<span class="number">1</span>, <span class="number">2</span>]        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">num</span> == <span class="string">"worst"</span>) &#123;                orderdata[nrow(orderdata), <span class="number">2</span>]        &#125; <span class="keyword">else</span>&#123;                orderdata[<span class="built_in">num</span>, <span class="number">2</span>]        &#125;&#125;</span><br><span class="line"><span class="comment">##Part 4: rankall.R:</span>rankall &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">outcome</span>, <span class="title">num</span> = <span class="string">"best"</span>) &#123;</span>        <span class="comment">## Read outcome data</span>        data &lt;- <span class="built_in">read</span>.csv(<span class="string">"outcome-of-care-measures.csv"</span>)                <span class="comment">## Check that outcome is valid</span>        <span class="keyword">if</span> (!((outcome == <span class="string">"heart attack"</span>) | (outcome == <span class="string">"heart failure"</span>)              | (outcome == <span class="string">"pneumonia"</span>))) &#123;                <span class="built_in">stop</span> (<span class="string">"invalid outcome"</span>)        &#125;        <span class="comment">## For each state, find the hospital of the given rank</span>        col &lt;- <span class="keyword">if</span> (outcome == <span class="string">"heart attack"</span>) &#123;                <span class="number">11</span>        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (outcome == <span class="string">"heart failure"</span>) &#123;                <span class="number">17</span>        &#125; <span class="keyword">else</span> &#123;                <span class="number">23</span>        &#125;                data[, col] &lt;- suppressWarnings(<span class="keyword">as</span>.<span class="keyword">numeric</span>(levels(data[, col])[data[, col]]))        data[, <span class="number">2</span>] &lt;- <span class="keyword">as</span>.<span class="keyword">character</span>(data[, <span class="number">2</span>])                <span class="comment"># Generate an empty vector that will be filled later, row by row, to </span>        <span class="comment"># generate the final output.</span>        output &lt;- vector()                states &lt;- levels(data[, <span class="number">7</span>])                <span class="keyword">for</span>(i <span class="operator">in</span> <span class="number">1</span>:<span class="built_in">length</span>(states)) &#123;                statedata &lt;- data[grep(states[i], data$State), ]                orderdata &lt;- statedata[order(statedata[, col], statedata[, <span class="number">2</span>],                                              na.<span class="keyword">last</span> = NA), ]                hospital &lt;- <span class="keyword">if</span>(<span class="built_in">num</span> == <span class="string">"best"</span>) &#123;                        orderdata[<span class="number">1</span>, <span class="number">2</span>]                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">num</span> == <span class="string">"worst"</span>) &#123;                        orderdata[nrow(orderdata), <span class="number">2</span>]                &#125; <span class="keyword">else</span>&#123;                        orderdata[<span class="built_in">num</span>, <span class="number">2</span>]                &#125;                output &lt;- append(output, c(hospital, states[i]))        &#125;        <span class="comment">## Return a data frame with the hospital names and the (abbreviated) </span>        <span class="comment">## state name</span>        output &lt;- <span class="keyword">as</span>.data.frame(matrix(output, <span class="built_in">length</span>(states), <span class="number">2</span>, byrow = <span class="constant">TRUE</span>))        colnames(output) &lt;- c(<span class="string">"hospital"</span>, <span class="string">"state"</span>)        rownames(output) &lt;- states                output&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Results">Results</h2><p><img src="http://qiniupicbed.qiniudn.com/upload/dacb9322945423c65a3d3063a4e4217e.png" alt=""></p>
+<h2 id="A_Good_Tutorial">A Good Tutorial</h2><p>Link: <a href="https://github.com/DanieleP/PA3-tutorial" target="_blank" rel="external">https://github.com/DanieleP/PA3-tutorial</a></p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/"> #R </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/22/《培根人生论》读书笔记/">《培根人生论》读书笔记</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/18/生命遐想/">生命遐想</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+      <div class="comments" id="comments">
+        
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xmuxiaomo" />
+          <p class="site-author-name">xmuxiaomo</p>
+        </div>
+        <p class="site-description motion-element">匆忙世间的闲人。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">349</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/xmuxiaomo" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/u/2457084784" target="_blank">weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part_1:_Plot_the_30-day_mortality_rates_for_heart_attack"><span class="nav-number">2.</span> <span class="nav-text">Part 1: Plot the 30-day mortality rates for heart attack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part_2:_Finding_the_best_hospital_in_a_state"><span class="nav-number">3.</span> <span class="nav-text">Part 2: Finding the best hospital in a state</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part_3:_Ranking_hospitals_by_outcome_in_a_state"><span class="nav-number">4.</span> <span class="nav-text">Part 3: Ranking hospitals by outcome in a state</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part_4:_Ranking_hospitals_in_all_states"><span class="nav-number">5.</span> <span class="nav-text">Part 4: Ranking hospitals in all states</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#My_Solution"><span class="nav-number">6.</span> <span class="nav-text">My Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Results"><span class="nav-number">7.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A_Good_Tutorial"><span class="nav-number">8.</span> <span class="nav-text">A Good Tutorial</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2022
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">xmuxiaomo</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
+    });
+  </script>
+
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+  
+
+  
+
+    
+      
+    
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xmuxiaomo';
+      var disqus_identifier = '2015/06/19/R-Programming-Assignment-3/';
+      var disqus_url = 'http://xmuxiaomo.github.io/2015/06/19/R-Programming-Assignment-3/';
+
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  
+
+
+
+
+  
+</body>
+</html>

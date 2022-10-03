@@ -1,0 +1,1117 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+    <meta name="description" content="匆忙世间的闲人。" />
+
+
+
+	<meta name="keywords" content="GitHub Pages,Hexo,Markdown," />
+	
+
+
+    <link rel="alternate" href="/atom.xml" title="小默的博客" type="application/atom+xml" />
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?99006bde90fd9672ff2dd2ebcd1aaf7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <title> 如何搭建独立的博客 // 小默的博客 </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">小默的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    <!--增加swiftype搜索功能-->
+    <form class="menu-item menu-item-">
+      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"  />
+    </form>
+    
+    <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+    _st('install','q3oXszmqgzDdD3RJmGAt');
+    </script>
+    <!--增加swiftype搜索功能end-->
+    
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              如何搭建独立的博客
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-04-15
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/04/16/如何搭建独立的博客/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/16/如何搭建独立的博客/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h1 id="写在前面的话">写在前面的话</h1><p>上个星期的某一天早晨醒来，突然琢磨着想搭建一个自己的博客。什么是自己的博客呢？就是单独的、独立的、属于自己的博客，不是在新浪上写博客，也不是QQ空间里的发日志，当然更不是微信里的发条朋友圈状态。  </p>
+<p>在脑中迅速勾勒了一下，打算用PHP来写个简单的网页，和MySQL数据库连接，后台直接把写好的文章放进数据库，然后在网页上读取并显示出来，仅此而已。至于域名和服务器，都是打算在Godaddy上完成。  </p>
+<p>有了想法，便迅速起床，打开Mac查了起来。不一会儿，便发现有更好的方法——利用GitHub Pages和Hexo来搭建博客。</p>
+<p>捣腾了四五天，不断改进，终于搭建得有模有样了。因为自己是站在巨人的肩膀上，所以也想着写一篇自己这个博客的完整搭建过程，以方便后人。</p>
+<a id="more"></a>
+<hr>
+<h1 id="Git">Git</h1><h2 id="什么是Git？">什么是Git？</h2><blockquote>
+<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. <em>（引自<a href="http://git-scm.com/" target="_blank" rel="external">Git</a>官网）</em></p>
+<p>译：Git是一个免费开源的分布式版本控制系统，用于快速高效地处理大大小小的各种项目。 </p>
+</blockquote>
+<p>学习Git的各种命令，推荐<a href="https://try.github.io/levels/1/challenges/1" target="_blank" rel="external">Try Git</a>。</p>
+<hr>
+<h1 id="GitHub">GitHub</h1><p>首先，我们要注册一个<a href="https://github.com/" target="_blank" rel="external">GitHub</a>账号，并登录。</p>
+<p>注册username和邮箱，邮箱十分重要，GitHub上很多通知都是通过邮箱传递的。</p>
+<p>GitHub的配置（特别是SSH keys的配置）可参考链接<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a>或文章<a href="http://beiyuu.com/github-pages/" target="_blank" rel="external">《使用Github Pages建独立博客》</a>中的相关内容。</p>
+<p>关于GitHub的学习，推荐观看Coursera上的<a href="https://class.coursera.org/datascitoolbox-012" target="_blank" rel="external">The Data Scientist’s Toolbox</a>课程的Week 2视频，并结合视频所提到的资料和网站帮助文档来学习如何使用。</p>
+<p>Mac上除了网页版，还可以下载<a href="https://mac.github.com/" target="_blank" rel="external">GitHub for Mac</a>来管理自己的GitHub，下图是其用户界面，第一次打开时设置关联到自己的GitHub账号上，之后使用就十分方便了。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/dbfa3b6cf84b2bfd34889ed27104506a.png" alt="">  </p>
+<p><strong>看到这里，也许你会困惑，Git和GitHub之间是什么关系？</strong>  </p>
+<blockquote>
+<p>Git = Local (on your computer)</p>
+<p>GitHub = Remote (on the web)</p>
+<p>即Git是在本地使用，而GitHub支持远程访问及同他人协同工作。 </p>
+</blockquote>
+<p>GitHub很好地将代码和社区联系在了一起，于是发生了很多有趣的事情，世界也因为它变得更美好了一点点。</p>
+<hr>
+<h1 id="GitHub_Pages">GitHub Pages</h1><h2 id="GitHub_Pages是什么？">GitHub Pages是什么？</h2><p><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>本用于介绍托管在GitHub的项目，不过，由于它的空间免费稳定，用来搭建一个博客再好不过了。</p>
+<p>GitHub Pages可以被认为是用户编写的、托管在GitHub上的静态网页（何为静态网页，请参看<a href="http://isnowfy.github.io/about-simple-cn.html" target="_blank" rel="external">《用静态页面生成静态博客》</a>一文）。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/9ee0f1ffb491fd3f0ea6713943240cc3.png" alt="">  </p>
+<h2 id="为什么选择GitHub_Pages？">为什么选择GitHub Pages？</h2><ul>
+<li><p>1、轻量级的博客系统，没有麻烦的配置，无需自己搭建服务器，且GitHub Pages有300M免费空间，资料自己管理，保存可靠；</p>
+</li>
+<li><p>2、学着用GitHub，享受GitHub的便利，上面有很多大牛，眼界会开阔很多；</p>
+</li>
+<li><p>3、顺便看看GitHub工作原理，最好的团队协作流程；</p>
+</li>
+<li><p>4、GitHub是趋势；</p>
+</li>
+<li><p>5、可以绑定自己的域名；</p>
+</li>
+<li><p>6、可以使用标记语言<a href="http://www.markdown.cn/" target="_blank" rel="external">Markdown</a>来写博客文章，注重内容，而不是繁琐的排版；</p>
+</li>
+<li><p>7、就算GitHub被墙了，我们的独立博客还可以搬到国内的<a href="https://gitcafe.com/" target="_blank" rel="external">GitCafe</a>中去。</p>
+</li>
+</ul>
+<h2 id="使用GitHub_Pages建立博客">使用GitHub Pages建立博客</h2><p>在与GitHub建立好连接之后，就可以方便地使用它提供的Pages服务，GitHub Pages分两种，一种是以你的GitHub用户名建立的username.github.io这样的用户或组织网站，另一种是依附项目的Pages。</p>
+<p>建立个人博客用Pages的第一种服务，即建立形如xmuxiaomo.github.io这样的可访问的网站，每个用户名下面只能建立一个。</p>
+<h3 id="在GitHub上建立仓库">在GitHub上建立仓库</h3><p>登录系统后，点击自己GitHub里的Repositories标签，然后点击右侧绿色的New按钮，最终建立的Repo如下图。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/a26d7994b9d0c7c89bd9218d50f458a6.png" alt="">  </p>
+<p><strong>这里要注意的是</strong>，GitHub Pages的Repo名字是特定的，比如我的GitHub账号用户名是xmuxiaomo，那么我的GitHub Pages Repo名字就是对应的xmuxiaomo.github.io。</p>
+<p>建立仓库的详细过程还可参看文章：<a href="http://www.pchou.info/web-build/2013/01/05/build-github-blog-page-02.html" target="_blank" rel="external">《一步步在GitHub上创建博客主页(2)》</a>。</p>
+<hr>
+<h1 id="Hexo">Hexo</h1><h2 id="什么是Hexo？">什么是Hexo？</h2><p>Hexo的作者是台湾大学生<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">tommy351</a>。进入<a href="http://hexo.io/" target="_blank" rel="external">Hexo官网</a>，我们可以看到如下页面：</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/362ec53a76ae866d6ea7881b684b309b.png" alt="">  </p>
+<p>Hexo是一个快速、简单、而强大的博客框架，它有如下特性：</p>
+<ul>
+<li><p>快速生成文件；</p>
+</li>
+<li><p>支持Markdown语法；</p>
+</li>
+<li><p>仅用一条命令即可部署；</p>
+</li>
+<li><p>丰富的插件。 </p>
+</li>
+</ul>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/bbbf7abe69677fb5b08257660b215fbc.png" alt="">  </p>
+<h2 id="Hexo的安装及使用">Hexo的安装及使用</h2><p>使用Hexo之前，我们需要先安装：</p>
+<ul>
+<li><p><a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a></p>
+</li>
+<li><p>Git（前文已有介绍）</p>
+</li>
+</ul>
+<h3 id="安装Node-js">安装Node.js</h3><p>Node.js最好的安装方法是使用<a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>。</p>
+<p>打开Terminal，用以下两种方法的任意一种来安装nvm。</p>
+<p>使用cURL：</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>curl <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span><span class="number">0</span>.<span class="number">24.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>或者Wget：</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>wget -qO- <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span><span class="number">0</span>.<span class="number">24.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>nvm安装好之后，退出Terminal，再重新打开，运行以下命令来安装Node.js：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">$ nvm <span class="keyword">install</span> <span class="number">0.12</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装Hexo">安装Hexo</h3><p>Node.js和Git都安装好后，就可以安装Hexo了，运行如下命令：</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">$ npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+<p>新建一个名为“Hexo”的文件夹，然后在Terminal里输入<code>cd</code>命令，进入该文件夹：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> Hexo</span><br></pre></td></tr></table></figure>
+<p>进入Hexo文件夹后，输入命令：</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo init</span><br></pre></td></tr></table></figure>
+<p>随后，Hexo会自动在该文件夹中建立网站所需要的所有文件。</p>
+<p>现在我们已经搭建起本地的Hexo博客了，执行以下命令（执行所有<code>hexo</code>命令必须在我们所建立的Hexo文件夹下）：</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo s</span><br></pre></td></tr></table></figure>
+<p><em><code>hexo g</code>是<code>hexo generate</code>的缩写；<code>hexo s</code>是<code>hexo server</code>的缩写。</em></p>
+<p>然后到浏览器输入localhost:4000，可以看到所搭建的博客效果（默认主题为landscape）。</p>
+<hr>
+<h1 id="博客的主题及个性化配置">博客的主题及个性化配置</h1><p>进入Hexo官网的<a href="http://hexo.io/themes/" target="_blank" rel="external">THEMES</a>寻找你感兴趣的主题，我用的主题是简约优雅的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>。</p>
+<p><strong>以下内容为我安装及使用NexT主题并进行个性化配置的详细过程。</strong></p>
+<h2 id="NexT主题介绍">NexT主题介绍</h2><blockquote>
+<p>精于心，简于形。</p>
+</blockquote>
+<p>有两款界面，默认主题如下：</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/32af8a64aa75a312f1a6a0800a756a4f.png" alt=""></p>
+<p>Mist风格主题（我用的是这个主题）如下：</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/ba833a82bba33ca37ba8a821f5d9510d.png" alt=""></p>
+<h2 id="安装和使用Next主题">安装和使用Next主题</h2><h3 id="安装">安装</h3><p>先从GitHub下载：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ <span class="keyword">cd</span> Hexo</span><br><span class="line">$ git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+<p>这时候，在<code>Hexo/themes</code>目录下就会发现除了landscape文件夹外的，还多了一个新的<code>next</code>文件夹。</p>
+<h3 id="使用">使用</h3><p>更改<strong>站点</strong><code>_config.yml</code>中的<code>theme</code>字段，设置为<code>next</code>：</p>
+<figure class="highlight http"><table><tr><td class="code"><pre><span class="line"><span class="attribute">theme</span>: <span class="string">next</span></span><br></pre></td></tr></table></figure>
+<p>编辑<strong>主题</strong>的<code>_config.yml</code>，将<code>scheme: Mist</code>前的注释符号去掉。</p>
+<p>这样，再启动本地服务器，进入浏览器，就可以看到博客已经换上了新的主题Mist。</p>
+<h2 id="站点配置">站点配置</h2><p>现在，我们可以根据自己的喜好来对站点进行配置了，要实现对整个站的配置，只要修改Hexo目录下的<code>_config.yml</code>文件就可以了（建议用<a href="http://www.sublimetext.com/2" target="_blank" rel="external">Sublime Text 2</a>来编辑）。以下附上我的配置和说明，供大家参考：</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"># Hexo Configuration</span><br><span class="line">## <span class="string">Docs:</span> <span class="string">http:</span><span class="comment">//hexo.io/docs/configuration.html</span></span><br><span class="line">## <span class="string">Source:</span> <span class="string">https:</span><span class="comment">//github.com/hexojs/hexo/</span></span><br><span class="line"></span><br><span class="line"># Site</span><br><span class="line"><span class="string">title:</span> 小默的博客 #网站标题</span><br><span class="line"><span class="string">subtitle:</span> 用自由自在的态度，过随遇而安的生活。 #在Mist主题下不显示</span><br><span class="line"><span class="string">description:</span> 匆忙世间的闲人。 #显示在侧边栏的描述信息</span><br><span class="line"><span class="string">author:</span> xmuxiaomo #网站作者，显示在侧边栏头像下方和网页底部</span><br><span class="line"><span class="string">language:</span> zh-Hans #语言为简体中文</span><br><span class="line"><span class="string">timezone:</span> #默认为系统的时区</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put <span class="keyword">in</span> a subdirectory, set url <span class="keyword">as</span> <span class="string">'http://yoursite.com/child'</span> and root <span class="keyword">as</span> <span class="string">'/child/'</span></span><br><span class="line"><span class="string">url:</span> <span class="string">http:</span><span class="comment">//yoursite.com #可以绑定的域名（我暂时没有购买和使用）</span></span><br><span class="line"><span class="string">root:</span> /</span><br><span class="line"><span class="string">permalink:</span> :year<span class="regexp">/:month/</span>:day<span class="regexp">/:title/</span></span><br><span class="line"><span class="string">permalink_defaults:</span></span><br><span class="line"><span class="label">  lang:</span> en</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line"><span class="string">source_dir:</span> source</span><br><span class="line"><span class="string">public_dir:</span> <span class="keyword">public</span></span><br><span class="line"><span class="string">tag_dir:</span> tags</span><br><span class="line"><span class="string">archive_dir:</span> archives</span><br><span class="line"><span class="string">category_dir:</span> categories</span><br><span class="line"><span class="string">code_dir:</span> downloads/code</span><br><span class="line"><span class="string">i18n_dir:</span> :lang</span><br><span class="line"><span class="string">skip_render:</span></span><br><span class="line"></span><br><span class="line"># Writing</span><br><span class="line"><span class="string">new_post_name:</span> :title.md # File name of <span class="keyword">new</span> posts</span><br><span class="line"><span class="string">default_layout:</span> post</span><br><span class="line"><span class="string">titlecase:</span> <span class="literal">false</span> # Transform title into titlecase</span><br><span class="line"><span class="string">external_link:</span> <span class="literal">true</span> # Open external links <span class="keyword">in</span> <span class="keyword">new</span> tab</span><br><span class="line"><span class="string">filename_case:</span> <span class="number">0</span> #<span class="number">1</span>为小写字母，<span class="number">2</span>为大写字母</span><br><span class="line"><span class="string">render_drafts:</span> <span class="literal">false</span> #是否显示草稿</span><br><span class="line"><span class="string">post_asset_folder:</span> <span class="literal">false</span> #在新建一篇博客的时候是否同时创建资料文件夹</span><br><span class="line"><span class="string">relative_link:</span> <span class="literal">false</span> #是否创建关联到根文件夹的链接</span><br><span class="line"><span class="string">future:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">highlight:</span> #代码高亮设置</span><br><span class="line"><span class="label">  enable:</span> <span class="literal">true</span> #是否启用</span><br><span class="line"><span class="label">  line_number:</span> <span class="literal">false</span> #是否显示代码的行号</span><br><span class="line"><span class="label">  tab_replace:</span></span><br><span class="line"></span><br><span class="line"># Category &amp; Tag</span><br><span class="line"><span class="string">default_category:</span> uncategorized</span><br><span class="line"><span class="string">category_map:</span> # Category slugs</span><br><span class="line"><span class="string">tag_map:</span> # Tag slugs</span><br><span class="line"></span><br><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format <span class="keyword">as</span> defined <span class="keyword">in</span></span><br><span class="line">## <span class="string">http:</span><span class="comment">//momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="string">date_format:</span> YYYY-MM-DD</span><br><span class="line"><span class="string">time_format:</span> <span class="string">HH:</span><span class="string">mm:</span>ss</span><br><span class="line"></span><br><span class="line"># Pagination</span><br><span class="line">## Set per_page to <span class="number">0</span> to disable pagination</span><br><span class="line"><span class="string">per_page:</span> <span class="number">10</span> #每页显示的文章数</span><br><span class="line"><span class="string">pagination_dir:</span> page</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## <span class="string">Plugins:</span> <span class="string">http:</span><span class="comment">//hexo.io/plugins/</span></span><br><span class="line">## <span class="string">Themes:</span> <span class="string">http:</span><span class="comment">//hexo.io/themes/</span></span><br><span class="line"><span class="string">theme:</span> next</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## <span class="string">Docs:</span> <span class="string">http:</span><span class="comment">//hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="string">deploy:</span> #部署在GitHub上</span><br><span class="line"><span class="label">  type:</span> git</span><br><span class="line"><span class="label">  repo:</span> <span class="string">https:</span><span class="comment">//github.com/xmuxiaomo/xmuxiaomo.github.io</span></span><br><span class="line"><span class="label">  branch:</span> master</span><br><span class="line"></span><br><span class="line"># Social links</span><br><span class="line"><span class="string">social:</span> #其他的社交链接，会显示在侧边栏</span><br><span class="line"><span class="label">  github:</span> <span class="string">https:</span><span class="comment">//github.com/xmuxiaomo</span></span><br><span class="line"><span class="label">  weibo:</span> <span class="string">http:</span><span class="comment">//weibo.com/u/2457084784</span></span><br><span class="line">  #<span class="string">zhihu:</span> <span class="string">http:</span><span class="comment">//www.zhihu.com/people/your-user-name</span></span><br><span class="line"></span><br><span class="line"># Duoshuo comments（启用多说评论系统）</span><br><span class="line"><span class="string">duoshuo_shortname:</span> your-duoshuo-shortname</span><br><span class="line"></span><br><span class="line"># Baidu analytics（启用百度统计）</span><br><span class="line"><span class="string">baidu_analytics:</span> your-analytics-id #百度统计ID，此ID是百度统计提供脚本中hm.js?后面那串字符，非百度统计帐号</span><br><span class="line"></span><br><span class="line"># Swiftype website search（启用Swiftype站内搜索）</span><br><span class="line">swiftype_key: your-swiftype-key</span><br><span class="line"></span><br><span class="line"># Creative commons（启用Creative Commons）</span><br><span class="line"><span class="string">creative_commons:</span> by-nc-sa</span><br></pre></td></tr></table></figure>
+<h2 id="主题配置">主题配置</h2><figure class="highlight vala"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#菜单配置，开启`首页`、`分类`、`归档`、`标签`和`关于`这五个页面。</span></span><br><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  categories: /categories</span><br><span class="line">  archives: /archives</span><br><span class="line">  tags: /tags</span><br><span class="line">  about: /about</span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Favicon</span></span><br><span class="line"><span class="preprocessor"># 从`Next 0.2`起，favicon将不再放置于主题之内。</span></span><br><span class="line"><span class="preprocessor"># 请将你的favicon放置在`hexo-site/source/`目录下。</span></span><br><span class="line">favicon: /favicon.ico</span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Set default keywords (Use a comma to separate)</span></span><br><span class="line">keywords: <span class="string">"Hexo,next"</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># 设置为`false`不显示`rss`链接</span></span><br><span class="line"><span class="preprocessor"># 留空，并且通过`hexo-site-feed`插件配置使用默认的feed</span></span><br><span class="line"><span class="preprocessor"># 设置成特定的`url`，适用于通过第三方服务定制feed的情况。</span></span><br><span class="line">rss: </span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Icon fonts</span></span><br><span class="line"><span class="preprocessor"># Place your font into next/source/fonts, specify directory-name and font-name here</span></span><br><span class="line"><span class="preprocessor"># Avialable: default | linecons | fifty-shades | feather</span></span><br><span class="line"><span class="preprocessor">#icon_font: default</span></span><br><span class="line"><span class="preprocessor">#icon_font: fifty-shades</span></span><br><span class="line">icon_font: feather</span><br><span class="line"><span class="preprocessor">#icon_font: linecons</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Code Highlight theme</span></span><br><span class="line"><span class="preprocessor"># Available value: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="preprocessor"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line">highlight_theme: night</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># MathJax Support</span></span><br><span class="line"><span class="preprocessor"># 开启数学公式渲染支持，默认关闭。设置为true开启。</span></span><br><span class="line">mathjax: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Schemes</span></span><br><span class="line">scheme: Mist</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#`阅读全文`按钮跳转之后是否自动滚动页面到设置`&lt;!-- more --&gt;`的地方。</span></span><br><span class="line">scroll_to_more: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#是否为侧边栏文章的目录自动添加索引，默认开启。设置为false关闭。</span></span><br><span class="line">toc_list_number: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">## DO NOT EDIT THE FOLLOWING SETTINGS</span></span><br><span class="line"><span class="preprocessor">## UNLESS YOU KNOW WHAT YOU ARE DOING</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Use velocity to animate everything.</span></span><br><span class="line">use_motion: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Fancybox</span></span><br><span class="line">fancybox: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Static files</span></span><br><span class="line">vendors: vendors</span><br><span class="line">css: css</span><br><span class="line">images: images</span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Theme version</span></span><br><span class="line">version: <span class="number">0.4</span>.2</span><br></pre></td></tr></table></figure>
+<p>以上的配置都是针对Mist这个主题特性而进行的，该主题有如下特性，可供大家自行添加、配置。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/1ffcf1c1eb464533846123f834e74d27.png" alt=""></p>
+<p><strong>注：配置过程中有疑问或出错的地方，推荐的解决途径如下（大部分问题都可以得到解决）：</strong></p>
+<ul>
+<li><p>进入链接查看相应配置的提示信息：<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a>；</p>
+</li>
+<li><p>进入该主题作者的博客<a href="http://notes.iissnan.com/" target="_blank" rel="external">IIssNan’s Notes</a>，在文章的评论和回复的地方进行查找，看是否自己也遇到类似问题；</p>
+</li>
+<li><p>进入主题的<a href="http://qiniupicbed.qiniudn.com/upload/2e03856d7968994ebdbda9090487c085.png" target="_blank" rel="external">Issues</a>页面进行查看，作者会更新和修复用户反应的bug。</p>
+</li>
+</ul>
+<p><em>如果还有解决不了的问题，可以向作者留言和提问。因为每个事物都是不断发展和改进的，没有一下子就完美的东西，我们在自己方便使用的过程中，也别忘了给出自己的宝贵意见，促进这个主题的修正和改进。</em></p>
+<p><strong>至此，博客已经搭建完成！^_^Y</strong></p>
+<hr>
+<h1 id="Markdown">Markdown</h1><p>博客搭建好之后，接着就是如何在博客上写文章了。</p>
+<h2 id="写新文章">写新文章</h2><p>首先，在Terminal上通过<code>cd</code>命令进入Hexo文件夹，然后输入以下命令：</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo n <span class="string">"postName"</span></span><br></pre></td></tr></table></figure>
+<p><em>其中，<code>hexo n</code>是<code>hexo new</code>的缩写，新建一篇文章，postName为文章标题，写在双引号中。</em></p>
+<p>执行命令后，在Hexo/source/_posts中会生成postName.md文件，用编辑器打开编写即可。</p>
+<h2 id="Mou">Mou</h2><p>.md文件为Markdown文件，推荐使用<a href="http://25.io/mou/" target="_blank" rel="external">Mou</a>进行编辑。</p>
+<p>以下为Mou的界面：<br><img src="http://qiniupicbed.qiniudn.com/upload/cfadf5c415ce53c5d8e966abbbc8bb45.png" alt=""></p>
+<h2 id="Markdown语法">Markdown语法</h2><p>Markdown是一种标记语言，其语法十分简洁。</p>
+<p><strong>推荐阅读</strong>：</p>
+<ul>
+<li><p><a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">献给写作者的 Markdown 新手指南</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/468f111d8fd3" target="_blank" rel="external">Markdown入门指南</a></p>
+</li>
+<li><p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">Daring Fireball: Markdown</a></p>
+</li>
+<li><p><a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdown 语法说明 (简体中文版)</a></p>
+</li>
+<li><p><a href="http://zipperary.com/2013/05/22/introduction-to-markdown/" target="_blank" rel="external">Markdown指南 | Zippera’s blog</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/search?utf8=%E2%9C%93&amp;type=collections&amp;q=markdown" target="_blank" rel="external">简书中的Markdown专题</a></p>
+</li>
+</ul>
+<p>当然，最快的掌握方法是读Mou Help，并动手用Markdown写一两篇文章。</p>
+<h2 id="发表新文章">发表新文章</h2><p>写完后，推送到服务器上，执行如下命令：</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">$ hexo <span class="keyword">d</span> -<span class="keyword">g</span></span><br></pre></td></tr></table></figure>
+<p><em><code>hexo d</code>是<code>hexo deploy</code>的缩写，<code>hexo d -g</code>是先生成静态页面然后将本地的博客相关文件部署到GitHub上。</em></p>
+<hr>
+<h1 id="404_NOT_FOUND页面">404 NOT FOUND页面</h1><p>在本地创建404.html文件，直接在GitHub上创建新文件，将本地404.html的内容拷贝上去，即可。<em>（每次部署后，我都得手动在GitHub上重新创建404页面，目前还没有找到解决的好方法。）</em></p>
+<p><strong>推荐</strong>：</p>
+<ul>
+<li><p><a href="http://yibo.iyiyun.com/Home/Distribute/ad404/" target="_blank" rel="external">益云404公益</a></p>
+</li>
+<li><p><a href="http://www.qq.com/404/" target="_blank" rel="external">腾讯公益404</a></p>
+</li>
+</ul>
+<h1 id="其他小建议">其他小建议</h1><h2 id="图床">图床</h2><p>推荐使用<a href="http://qiniupicbed.sinaapp.com/" target="_blank" rel="external">七牛</a>（10G空间，免费）。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/f1bd54df30591e6dd4619706ce49dee4.png" alt=""></p>
+<h2 id="ico图标制作">ico图标制作</h2><p>推荐使用<a href="http://www.bitbug.net/" target="_blank" rel="external">比特虫</a>，图片转换很方便。</p>
+<p><strong>好啦，到这里整个独立博客就已步入正轨了。接下去就可以不断书写自己的故事了。<em>PS:</em> 已经连续第三天快要凌晨2点睡觉了，整理得乐在其中。哈哈，晚安！</strong></p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GitHub-Pages/"> #GitHub Pages </a>
+          
+            <a href="/tags/Hexo/"> #Hexo </a>
+          
+            <a href="/tags/Markdown/"> #Markdown </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/16/亲爱的，你真美！/">亲爱的，你真美！</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/14/《大师》之罗家伦/">《大师》之罗家伦</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+      <div class="comments" id="comments">
+        
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xmuxiaomo" />
+          <p class="site-author-name">xmuxiaomo</p>
+        </div>
+        <p class="site-description motion-element">匆忙世间的闲人。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">349</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/xmuxiaomo" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/u/2457084784" target="_blank">weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面的话"><span class="nav-number">1.</span> <span class="nav-text">写在前面的话</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git"><span class="nav-number">2.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Git？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Git？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub"><span class="nav-number">3.</span> <span class="nav-text">GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub_Pages"><span class="nav-number">4.</span> <span class="nav-text">GitHub Pages</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub_Pages是什么？"><span class="nav-number">4.1.</span> <span class="nav-text">GitHub Pages是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择GitHub_Pages？"><span class="nav-number">4.2.</span> <span class="nav-text">为什么选择GitHub Pages？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用GitHub_Pages建立博客"><span class="nav-number">4.3.</span> <span class="nav-text">使用GitHub Pages建立博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在GitHub上建立仓库"><span class="nav-number">4.3.1.</span> <span class="nav-text">在GitHub上建立仓库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo"><span class="nav-number">5.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo？"><span class="nav-number">5.1.</span> <span class="nav-text">什么是Hexo？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo的安装及使用"><span class="nav-number">5.2.</span> <span class="nav-text">Hexo的安装及使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js"><span class="nav-number">5.2.1.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">5.2.2.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客的主题及个性化配置"><span class="nav-number">6.</span> <span class="nav-text">博客的主题及个性化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT主题介绍"><span class="nav-number">6.1.</span> <span class="nav-text">NexT主题介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和使用Next主题"><span class="nav-number">6.2.</span> <span class="nav-text">安装和使用Next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">6.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">6.2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站点配置"><span class="nav-number">6.3.</span> <span class="nav-text">站点配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">6.4.</span> <span class="nav-text">主题配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown"><span class="nav-number">7.</span> <span class="nav-text">Markdown</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#写新文章"><span class="nav-number">7.1.</span> <span class="nav-text">写新文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mou"><span class="nav-number">7.2.</span> <span class="nav-text">Mou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown语法"><span class="nav-number">7.3.</span> <span class="nav-text">Markdown语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发表新文章"><span class="nav-number">7.4.</span> <span class="nav-text">发表新文章</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#404_NOT_FOUND页面"><span class="nav-number">8.</span> <span class="nav-text">404 NOT FOUND页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他小建议"><span class="nav-number">9.</span> <span class="nav-text">其他小建议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图床"><span class="nav-number">9.1.</span> <span class="nav-text">图床</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ico图标制作"><span class="nav-number">9.2.</span> <span class="nav-text">ico图标制作</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2022
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">xmuxiaomo</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
+    });
+  </script>
+
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+  
+
+  
+
+    
+      
+    
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xmuxiaomo';
+      var disqus_identifier = '2015/04/16/如何搭建独立的博客/';
+      var disqus_url = 'http://xmuxiaomo.github.io/2015/04/16/如何搭建独立的博客/';
+
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  
+
+
+
+
+  
+</body>
+</html>

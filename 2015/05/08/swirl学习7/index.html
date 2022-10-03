@@ -1,0 +1,948 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+    <meta name="description" content="匆忙世间的闲人。" />
+
+
+
+	<meta name="keywords" content="R," />
+	
+
+
+    <link rel="alternate" href="/atom.xml" title="小默的博客" type="application/atom+xml" />
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?99006bde90fd9672ff2dd2ebcd1aaf7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <title> swirl学习之七——Matrices and Data Frames // 小默的博客 </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">小默的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    <!--增加swiftype搜索功能-->
+    <form class="menu-item menu-item-">
+      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"  />
+    </form>
+    
+    <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+    _st('install','q3oXszmqgzDdD3RJmGAt');
+    </script>
+    <!--增加swiftype搜索功能end-->
+    
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              swirl学习之七——Matrices and Data Frames
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-07
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/08/swirl学习7/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/08/swirl学习7/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">| Please choose a course, <span class="keyword">or</span> type <span class="number">0</span> <span class="keyword">to</span> <span class="keyword">exit</span> swirl.</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: R Programming</span><br><span class="line"><span class="number">2</span>: <span class="keyword">Take</span> <span class="keyword">me</span> <span class="keyword">to</span> the swirl course repository!</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">1</span></span><br><span class="line"></span><br><span class="line">| Please choose a lesson, <span class="keyword">or</span> type <span class="number">0</span> <span class="keyword">to</span> <span class="keyword">return</span> <span class="keyword">to</span> course menu.</span><br><span class="line"></span><br><span class="line"> <span class="number">1</span>: Basic Building Blocks      <span class="number">2</span>: Workspace <span class="keyword">and</span> Files     </span><br><span class="line"> <span class="number">3</span>: Sequences <span class="keyword">of</span> Numbers       <span class="number">4</span>: Vectors                 </span><br><span class="line"> <span class="number">5</span>: Missing Values             <span class="number">6</span>: Subsetting Vectors      </span><br><span class="line"> <span class="number">7</span>: Matrices <span class="keyword">and</span> Data Frames   <span class="number">8</span>: Logic                   </span><br><span class="line"> <span class="number">9</span>: Functions                 <span class="number">10</span>: lapply <span class="keyword">and</span> sapply       </span><br><span class="line"><span class="number">11</span>: vapply <span class="keyword">and</span> tapply         <span class="number">12</span>: Looking at Data         </span><br><span class="line"><span class="number">13</span>: Simulation                <span class="number">14</span>: Dates <span class="keyword">and</span> Times         </span><br><span class="line"><span class="number">15</span>: Base Graphics             </span><br><span class="line"></span><br><span class="line">Selection: <span class="number">7</span></span><br><span class="line"></span><br><span class="line">  |                                                            |   <span class="number">0</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">In</span> this lesson, we<span class="comment">'ll cover matrices and data frames. Both</span></span><br><span class="line">| represent <span class="comment">'rectangular' data types, meaning that they are used to</span></span><br><span class="line">| store tabular data, <span class="keyword">with</span> rows <span class="keyword">and</span> columns.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==                                                          |   <span class="number">3</span>%</span><br><span class="line"></span><br><span class="line">| The main difference, <span class="keyword">as</span> you<span class="comment">'ll see, is that matrices can only</span></span><br><span class="line">| contain a <span class="built_in">single</span> <span class="keyword">class</span> <span class="keyword">of</span> data, <span class="keyword">while</span> data frames can consist <span class="keyword">of</span></span><br><span class="line">| many different classes <span class="keyword">of</span> data.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===                                                         |   <span class="number">6</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s create a vector containing the numbers 1 through 20 using the</span></span><br><span class="line">| `:` <span class="keyword">operator</span>. Store the result <span class="keyword">in</span> a variable called my_vector.</span><br><span class="line"></span><br><span class="line">&gt; my_vector&lt;-<span class="number">1</span>:<span class="number">20</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s the answer I was looking for.</span></span><br><span class="line"></span><br><span class="line">  |=====                                                       |   <span class="number">9</span>%</span><br><span class="line"></span><br><span class="line">| View the contents <span class="keyword">of</span> the vector you just created.</span><br><span class="line"></span><br><span class="line">&gt; my_vector</span><br><span class="line"> [<span class="number">1</span>]  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span> <span class="number">18</span> <span class="number">19</span> <span class="number">20</span></span><br><span class="line"></span><br><span class="line">| Excellent job!</span><br><span class="line"></span><br><span class="line">  |=======                                                     |  <span class="number">11</span>%</span><br><span class="line"></span><br><span class="line">| The <span class="keyword">dim</span>() <span class="keyword">function</span> tells us the <span class="comment">'dimensions' of an object. What</span></span><br><span class="line">| happens <span class="keyword">if</span> we <span class="keyword">do</span> <span class="keyword">dim</span>(my_vector)? Give it a <span class="keyword">try</span>.</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">dim</span>(my_vector)</span><br><span class="line">NULL</span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s correct!</span></span><br><span class="line"></span><br><span class="line">  |=========                                                   |  <span class="number">14</span>%</span><br><span class="line"></span><br><span class="line">| Clearly, that<span class="comment">'s not very helpful! Since my_vector is a vector, it</span></span><br><span class="line">| doesn<span class="comment">'t have a `dim` attribute (so it's just NULL), but we can find</span></span><br><span class="line">| its length <span class="keyword">using</span> the length() <span class="keyword">function</span>. <span class="keyword">Try</span> that now.</span><br><span class="line"></span><br><span class="line">&gt; length(my_vector)</span><br><span class="line">[<span class="number">1</span>] <span class="number">20</span></span><br><span class="line"></span><br><span class="line">| Excellent job!</span><br><span class="line"></span><br><span class="line">  |==========                                                  |  <span class="number">17</span>%</span><br><span class="line"></span><br><span class="line">| Ah! That<span class="comment">'s what we wanted. But, what happens if we give my_vector a</span></span><br><span class="line">| `<span class="keyword">dim</span>` attribute? <span class="keyword">Let</span><span class="comment">'s give it a try. Type dim(my_vector) <span class="xmlDocTag">&lt;- c(4,</span><br><span class="line">| 5).</span><br><span class="line"></span><br><span class="line">&gt;</span> dim(my_vector)<span class="xmlDocTag">&lt;-c(4,5)</span><br><span class="line"></span><br><span class="line">| Great job!</span><br><span class="line"></span><br><span class="line">  |============                                                |  20%</span><br><span class="line"></span><br><span class="line">| It's okay if that last command seemed a little strange to you. It</span><br><span class="line">| should! The dim() function allows you to get OR set the `dim`</span><br><span class="line">| attribute for an R object. In this case, we assigned the value c(4,</span><br><span class="line">| 5) to the `dim` attribute of my_vector.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==============                                              |  23%</span><br><span class="line"></span><br><span class="line">| Use dim(my_vector) to confirm that we've set the `dim` attribute</span><br><span class="line">| correctly.</span><br><span class="line"></span><br><span class="line">&gt;</span> dim(my_vector)</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line">| All that practice <span class="keyword">is</span> paying <span class="keyword">off</span>!</span><br><span class="line"></span><br><span class="line">  |===============                                             |  <span class="number">26</span>%</span><br><span class="line"></span><br><span class="line">| Another way <span class="keyword">to</span> see this <span class="keyword">is</span> <span class="keyword">by</span> calling the attributes() <span class="keyword">function</span> <span class="keyword">on</span></span><br><span class="line">| my_vector. <span class="keyword">Try</span> it now.</span><br><span class="line"></span><br><span class="line">&gt; attributes(my_vector)</span><br><span class="line">$<span class="keyword">dim</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">| Keep up the great work!</span><br><span class="line"></span><br><span class="line">  |=================                                           |  <span class="number">29</span>%</span><br><span class="line"></span><br><span class="line">| Just <span class="keyword">like</span> <span class="keyword">in</span> math <span class="keyword">class</span>, <span class="keyword">when</span> dealing <span class="keyword">with</span> a <span class="number">2</span>-dimensional <span class="built_in">object</span></span><br><span class="line">| (think rectangular table), the first number <span class="keyword">is</span> the number <span class="keyword">of</span> rows</span><br><span class="line">| <span class="keyword">and</span> the second <span class="keyword">is</span> the number <span class="keyword">of</span> columns. Therefore, we just gave</span><br><span class="line">| my_vector <span class="number">4</span> rows <span class="keyword">and</span> <span class="number">5</span> columns.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===================                                         |  <span class="number">31</span>%</span><br><span class="line"></span><br><span class="line">| But, wait! That doesn<span class="comment">'t sound like a vector any more. Well, it's</span></span><br><span class="line">| <span class="keyword">not</span>. Now it<span class="comment">'s a matrix. View the contents of my_vector now to see</span></span><br><span class="line">| what it looks <span class="keyword">like</span>.</span><br><span class="line"></span><br><span class="line">&gt; my_vector</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>] [,<span class="number">4</span>] [,<span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">5</span>    <span class="number">9</span>   <span class="number">13</span>   <span class="number">17</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">6</span>   <span class="number">10</span>   <span class="number">14</span>   <span class="number">18</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">7</span>   <span class="number">11</span>   <span class="number">15</span>   <span class="number">19</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">4</span>    <span class="number">8</span>   <span class="number">12</span>   <span class="number">16</span>   <span class="number">20</span></span><br><span class="line"></span><br><span class="line">| All that practice <span class="keyword">is</span> paying <span class="keyword">off</span>!</span><br><span class="line"></span><br><span class="line">  |=====================                                       |  <span class="number">34</span>%</span><br><span class="line"></span><br><span class="line">| Now, <span class="keyword">let</span><span class="comment">'s confirm it's actually a matrix by using the class()</span></span><br><span class="line">| <span class="keyword">function</span>. Type <span class="keyword">class</span>(my_vector) <span class="keyword">to</span> see what I mean.</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">class</span>(my_vector)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"matrix"</span></span><br><span class="line"></span><br><span class="line">| You<span class="comment">'re the best!</span></span><br><span class="line"></span><br><span class="line">  |======================                                      |  <span class="number">37</span>%</span><br><span class="line"></span><br><span class="line">| Sure enough, my_vector <span class="keyword">is</span> now a matrix. We should store it <span class="keyword">in</span> a <span class="keyword">new</span></span><br><span class="line">| variable that helps us remember what it <span class="keyword">is</span>. Store the value <span class="keyword">of</span></span><br><span class="line">| my_vector <span class="keyword">in</span> a <span class="keyword">new</span> variable called my_matrix.</span><br><span class="line"></span><br><span class="line">&gt; my_matrix&lt;-my_vector</span><br><span class="line"></span><br><span class="line">| Keep up the great work!</span><br><span class="line"></span><br><span class="line">  |========================                                    |  <span class="number">40</span>%</span><br><span class="line"></span><br><span class="line">| The example that we<span class="comment">'ve used so far was meant to illustrate the</span></span><br><span class="line">| point that a matrix <span class="keyword">is</span> simply an atomic vector <span class="keyword">with</span> a dimension</span><br><span class="line">| attribute. A more direct method <span class="keyword">of</span> creating the same matrix uses</span><br><span class="line">| the matrix() <span class="keyword">function</span>.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==========================                                  |  <span class="number">43</span>%</span><br><span class="line"></span><br><span class="line">| Bring up the help file <span class="keyword">for</span> the matrix() <span class="keyword">function</span> now <span class="keyword">using</span> the `?`</span><br><span class="line">| <span class="keyword">function</span>.</span><br><span class="line"></span><br><span class="line">&gt; ?matrix</span><br><span class="line"></span><br><span class="line">| Perseverance, that<span class="comment">'s the answer.</span></span><br><span class="line"></span><br><span class="line">  |===========================                                 |  <span class="number">46</span>%</span><br><span class="line"></span><br><span class="line">| Now, look at the documentation <span class="keyword">for</span> the matrix <span class="keyword">function</span> <span class="keyword">and</span> see <span class="keyword">if</span></span><br><span class="line">| you can figure out how <span class="keyword">to</span> create a matrix containing the same</span><br><span class="line">| numbers (<span class="number">1</span>-<span class="number">20</span>) <span class="keyword">and</span> dimensions (<span class="number">4</span> rows, <span class="number">5</span> columns) <span class="keyword">by</span> calling the</span><br><span class="line">| matrix() <span class="keyword">function</span>. Store the result <span class="keyword">in</span> a variable called</span><br><span class="line">| my_matrix2.</span><br><span class="line"></span><br><span class="line">&gt; my_matrix2&lt;-matrix(<span class="number">1</span>:<span class="number">20</span>,nrow=<span class="number">4</span>,ncol=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s a job well done!</span></span><br><span class="line"></span><br><span class="line">  |=============================                               |  <span class="number">49</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Finally</span>, <span class="keyword">let</span><span class="comment">'s confirm that my_matrix and my_matrix2 are actually</span></span><br><span class="line">| identical. The identical() <span class="keyword">function</span> will tell us <span class="keyword">if</span> its first two</span><br><span class="line">| arguments are the same. <span class="keyword">Try</span> it out.</span><br><span class="line"></span><br><span class="line">&gt; identical(my_matrix,my_matrix2)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line"></span><br><span class="line">| You nailed it! Good job!</span><br><span class="line"></span><br><span class="line">  |===============================                             |  <span class="number">51</span>%</span><br><span class="line"></span><br><span class="line">| Now, imagine that the numbers <span class="keyword">in</span> our table represent some</span><br><span class="line">| measurements <span class="keyword">from</span> a clinical experiment, <span class="keyword">where</span> <span class="keyword">each</span> row represents</span><br><span class="line">| one patient <span class="keyword">and</span> <span class="keyword">each</span> column represents one variable <span class="keyword">for</span> which</span><br><span class="line">| measurements were taken.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=================================                           |  <span class="number">54</span>%</span><br><span class="line"></span><br><span class="line">| We may want <span class="keyword">to</span> label the rows, so that we know which numbers belong</span><br><span class="line">| <span class="keyword">to</span> <span class="keyword">each</span> patient <span class="keyword">in</span> the experiment. One way <span class="keyword">to</span> <span class="keyword">do</span> this <span class="keyword">is</span> <span class="keyword">to</span> add a</span><br><span class="line">| column <span class="keyword">to</span> the matrix, which contains the names <span class="keyword">of</span> all four people.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==================================                          |  <span class="number">57</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s start by creating a character vector containing the names of</span></span><br><span class="line">| our patients -- Bill, Gina, Kelly, <span class="keyword">and</span> Sean. Remember that <span class="built_in">double</span></span><br><span class="line">| quotes tell R that something <span class="keyword">is</span> a character <span class="built_in">string</span>. Store the</span><br><span class="line">| result <span class="keyword">in</span> a variable called patients.</span><br><span class="line"></span><br><span class="line">&gt; patients&lt;-c(<span class="string">"Bill"</span>,<span class="string">"Gina"</span>,<span class="string">"Kelly"</span>,<span class="string">"Sean"</span>)</span><br><span class="line"></span><br><span class="line">| You are doing so well!</span><br><span class="line"></span><br><span class="line">  |====================================                        |  <span class="number">60</span>%</span><br><span class="line"></span><br><span class="line">| Now we<span class="comment">'ll use the cbind() function to 'combine columns'. Don't</span></span><br><span class="line">| worry about storing the result <span class="keyword">in</span> a <span class="keyword">new</span> variable. Just <span class="keyword">call</span> cbind()</span><br><span class="line">| <span class="keyword">with</span> two arguments -- the patients vector <span class="keyword">and</span> my_matrix.</span><br><span class="line"></span><br><span class="line">&gt; cbind(patients,my_matrix)</span><br><span class="line">     patients                       </span><br><span class="line">[<span class="number">1</span>,] <span class="string">"Bill"</span>   <span class="string">"1"</span> <span class="string">"5"</span> <span class="string">"9"</span>  <span class="string">"13"</span> <span class="string">"17"</span></span><br><span class="line">[<span class="number">2</span>,] <span class="string">"Gina"</span>   <span class="string">"2"</span> <span class="string">"6"</span> <span class="string">"10"</span> <span class="string">"14"</span> <span class="string">"18"</span></span><br><span class="line">[<span class="number">3</span>,] <span class="string">"Kelly"</span>  <span class="string">"3"</span> <span class="string">"7"</span> <span class="string">"11"</span> <span class="string">"15"</span> <span class="string">"19"</span></span><br><span class="line">[<span class="number">4</span>,] <span class="string">"Sean"</span>   <span class="string">"4"</span> <span class="string">"8"</span> <span class="string">"12"</span> <span class="string">"16"</span> <span class="string">"20"</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s correct!</span></span><br><span class="line"></span><br><span class="line">  |======================================                      |  <span class="number">63</span>%</span><br><span class="line"></span><br><span class="line">| Something <span class="keyword">is</span> fishy about our result! It appears that combining the</span><br><span class="line">| character vector <span class="keyword">with</span> our matrix <span class="keyword">of</span> numbers caused everything <span class="keyword">to</span> be</span><br><span class="line">| enclosed <span class="keyword">in</span> <span class="built_in">double</span> quotes. This means we<span class="comment">'re left with a matrix of</span></span><br><span class="line">| character strings, which <span class="keyword">is</span> no good.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=======================================                     |  <span class="number">66</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">If</span> you remember back <span class="keyword">to</span> the beginning <span class="keyword">of</span> this lesson, I told you</span><br><span class="line">| that matrices can only contain ONE <span class="keyword">class</span> <span class="keyword">of</span> data. Therefore, <span class="keyword">when</span></span><br><span class="line">| we tried <span class="keyword">to</span> combine a character vector <span class="keyword">with</span> a numeric matrix, R was</span><br><span class="line">| forced <span class="keyword">to</span> <span class="comment">'coerce' the numbers to characters, hence the double</span></span><br><span class="line">| quotes.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=========================================                   |  <span class="number">69</span>%</span><br><span class="line"></span><br><span class="line">| This <span class="keyword">is</span> called <span class="comment">'implicit coercion', because we didn't ask for it.</span></span><br><span class="line">| It just happened. But why didn<span class="comment">'t R just convert the names of our</span></span><br><span class="line">| patients <span class="keyword">to</span> numbers? I<span class="comment">'ll let you ponder that question on your own.</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |===========================================                 |  <span class="number">71</span>%</span><br><span class="line"></span><br><span class="line">| So, we<span class="comment">'re still left with the question of how to include the names</span></span><br><span class="line">| <span class="keyword">of</span> our patients <span class="keyword">in</span> the table without destroying the integrity <span class="keyword">of</span></span><br><span class="line">| our numeric data. <span class="keyword">Try</span> the following -- my_data &lt;-</span><br><span class="line">| data.frame(patients, my_matrix)</span><br><span class="line"></span><br><span class="line">&gt; my_data&lt;-data.frame(patients,my_matrix)</span><br><span class="line"></span><br><span class="line">| You nailed it! Good job!</span><br><span class="line"></span><br><span class="line">  |=============================================               |  <span class="number">74</span>%</span><br><span class="line"></span><br><span class="line">| Now view the contents <span class="keyword">of</span> my_data <span class="keyword">to</span> see what we<span class="comment">'ve come up with.</span></span><br><span class="line"></span><br><span class="line">&gt; my_data</span><br><span class="line">  patients X1 X2 X3 X4 X5</span><br><span class="line"><span class="number">1</span>     Bill  <span class="number">1</span>  <span class="number">5</span>  <span class="number">9</span> <span class="number">13</span> <span class="number">17</span></span><br><span class="line"><span class="number">2</span>     Gina  <span class="number">2</span>  <span class="number">6</span> <span class="number">10</span> <span class="number">14</span> <span class="number">18</span></span><br><span class="line"><span class="number">3</span>    Kelly  <span class="number">3</span>  <span class="number">7</span> <span class="number">11</span> <span class="number">15</span> <span class="number">19</span></span><br><span class="line"><span class="number">4</span>     Sean  <span class="number">4</span>  <span class="number">8</span> <span class="number">12</span> <span class="number">16</span> <span class="number">20</span></span><br><span class="line"></span><br><span class="line">| Your dedication <span class="keyword">is</span> inspiring!</span><br><span class="line"></span><br><span class="line">  |==============================================              |  <span class="number">77</span>%</span><br><span class="line"></span><br><span class="line">| It looks <span class="keyword">like</span> the data.frame() <span class="keyword">function</span> allowed us <span class="keyword">to</span> store our</span><br><span class="line">| character vector <span class="keyword">of</span> names right alongside our matrix <span class="keyword">of</span> numbers.</span><br><span class="line">| That<span class="comment">'s exactly what we were hoping for!</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |================================================            |  <span class="number">80</span>%</span><br><span class="line"></span><br><span class="line">| Behind the scenes, the data.frame() <span class="keyword">function</span> takes any number <span class="keyword">of</span></span><br><span class="line">| arguments <span class="keyword">and</span> returns a <span class="built_in">single</span> <span class="built_in">object</span> <span class="keyword">of</span> <span class="keyword">class</span> `data.frame` that <span class="keyword">is</span></span><br><span class="line">| composed <span class="keyword">of</span> the original objects.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |==================================================          |  <span class="number">83</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s confirm this by calling the class() function on our newly</span></span><br><span class="line">| created data frame.</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">class</span>(my_data)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"data.frame"</span></span><br><span class="line"></span><br><span class="line">| That<span class="comment">'s the answer I was looking for.</span></span><br><span class="line"></span><br><span class="line">  |===================================================         |  <span class="number">86</span>%</span><br><span class="line"></span><br><span class="line">| It<span class="comment">'s also possible to assign names to the individual rows and</span></span><br><span class="line">| columns <span class="keyword">of</span> a data frame, which presents another possible way <span class="keyword">of</span></span><br><span class="line">| determining which row <span class="keyword">of</span> values <span class="keyword">in</span> our table belongs <span class="keyword">to</span> <span class="keyword">each</span></span><br><span class="line">| patient.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=====================================================       |  <span class="number">89</span>%</span><br><span class="line"></span><br><span class="line">| However, since we<span class="comment">'ve already solved that problem, let's solve a</span></span><br><span class="line">| different problem <span class="keyword">by</span> assigning names <span class="keyword">to</span> the columns <span class="keyword">of</span> our data</span><br><span class="line">| frame so that we know what type <span class="keyword">of</span> measurement <span class="keyword">each</span> column</span><br><span class="line">| represents.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  |=======================================================     |  <span class="number">91</span>%</span><br><span class="line"></span><br><span class="line">| Since we have six columns (including patient names), we<span class="comment">'ll need to</span></span><br><span class="line">| first create a vector containing one element <span class="keyword">for</span> <span class="keyword">each</span> column.</span><br><span class="line">| Create a character vector called cnames that contains the following</span><br><span class="line">| values (<span class="keyword">in</span> <span class="keyword">order</span>) -- <span class="string">"patient"</span>, <span class="string">"age"</span>, <span class="string">"weight"</span>, <span class="string">"bp"</span>, <span class="string">"rating"</span>,</span><br><span class="line">| <span class="string">"test"</span>.</span><br><span class="line"></span><br><span class="line">&gt; cnames&lt;-c(<span class="string">"patient"</span>,<span class="string">"age"</span>,<span class="string">"weight"</span>,<span class="string">"bp"</span>,<span class="string">"rating"</span>,<span class="string">"test"</span>)</span><br><span class="line"></span><br><span class="line">| Nice work!</span><br><span class="line"></span><br><span class="line">  |=========================================================   |  <span class="number">94</span>%</span><br><span class="line"></span><br><span class="line">| Now, use the colnames() <span class="keyword">function</span> <span class="keyword">to</span> <span class="keyword">set</span> the `colnames` attribute</span><br><span class="line">| <span class="keyword">for</span> our data frame. This <span class="keyword">is</span> similar <span class="keyword">to</span> the way we used the <span class="keyword">dim</span>()</span><br><span class="line">| <span class="keyword">function</span> earlier <span class="keyword">in</span> this lesson.</span><br><span class="line"></span><br><span class="line">&gt; colnames(my_data)&lt;-cnames</span><br><span class="line"></span><br><span class="line">| You are amazing!</span><br><span class="line"></span><br><span class="line">  |==========================================================  |  <span class="number">97</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">Let</span><span class="comment">'s see if that got the job done. Print the contents of my_data.</span></span><br><span class="line"></span><br><span class="line">&gt; my_data</span><br><span class="line">  patient age weight bp rating test</span><br><span class="line"><span class="number">1</span>    Bill   <span class="number">1</span>      <span class="number">5</span>  <span class="number">9</span>     <span class="number">13</span>   <span class="number">17</span></span><br><span class="line"><span class="number">2</span>    Gina   <span class="number">2</span>      <span class="number">6</span> <span class="number">10</span>     <span class="number">14</span>   <span class="number">18</span></span><br><span class="line"><span class="number">3</span>   Kelly   <span class="number">3</span>      <span class="number">7</span> <span class="number">11</span>     <span class="number">15</span>   <span class="number">19</span></span><br><span class="line"><span class="number">4</span>    Sean   <span class="number">4</span>      <span class="number">8</span> <span class="number">12</span>     <span class="number">16</span>   <span class="number">20</span></span><br><span class="line"></span><br><span class="line">| You nailed it! Good job!</span><br><span class="line"></span><br><span class="line">  |============================================================| <span class="number">100</span>%</span><br><span class="line"></span><br><span class="line">| <span class="keyword">In</span> this lesson, you learned the basics <span class="keyword">of</span> working <span class="keyword">with</span> two very</span><br><span class="line">| important <span class="keyword">and</span> common data structures -- matrices <span class="keyword">and</span> data frames.</span><br><span class="line">| There<span class="comment">'s much more to learn and we'll be covering more advanced</span></span><br><span class="line">| topics, particularly <span class="keyword">with</span> respect <span class="keyword">to</span> data frames, <span class="keyword">in</span> future</span><br><span class="line">| lessons.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">| Are you currently enrolled <span class="keyword">in</span> the Coursera course associated <span class="keyword">with</span></span><br><span class="line">| this lesson?</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>: Yes</span><br><span class="line"><span class="number">2</span>: No</span><br><span class="line"></span><br><span class="line">Selection: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">| You<span class="comment">'ve reached the end of this lesson! Returning to the main</span></span><br><span class="line">| menu...</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/"> #R </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/08/swirl学习8/">swirl学习之八——Logic</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/07/swirl学习6/">swirl学习之六——Subsetting Vectors</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+      <div class="comments" id="comments">
+        
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xmuxiaomo" />
+          <p class="site-author-name">xmuxiaomo</p>
+        </div>
+        <p class="site-description motion-element">匆忙世间的闲人。</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">349</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/xmuxiaomo" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/u/2457084784" target="_blank">weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2022
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">xmuxiaomo</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
+    });
+  </script>
+
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+  
+
+  
+
+    
+      
+    
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xmuxiaomo';
+      var disqus_identifier = '2015/05/08/swirl学习7/';
+      var disqus_url = 'http://xmuxiaomo.github.io/2015/05/08/swirl学习7/';
+
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  
+
+
+
+
+  
+</body>
+</html>
