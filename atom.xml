@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xmuxiaomo.github.io/"/>
-  <updated>2022-10-13T03:59:40.556Z</updated>
+  <updated>2022-10-13T10:03:30.520Z</updated>
   <id>http://xmuxiaomo.github.io/</id>
   
   <author>
@@ -15,17 +15,12 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://xmuxiaomo.github.io/2022/10/13/%E7%AE%80%E8%B0%88%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%80%E9%A6%96%E8%AF%97/"/>
-    <id>http://xmuxiaomo.github.io/2022/10/13/简谈自己的一首诗/</id>
-    <published>2022-10-13T03:59:40.556Z</published>
-    <updated>2022-10-13T03:59:40.556Z</updated>
-    <content type="html"><![CDATA[<p>title: “简谈自己的一首诗”<br>permalink: a-brief-talk-on-my-poem-Tears-of-Rupert<br>date: 2022-10-12 18:49:44<br>tags: </p>
-<ul>
-<li>诗</li>
-<li>诗话<br>categories: 个人随笔</li>
-</ul>
-<p>昨日写了首诗：</p>
+    <title><![CDATA[简谈自己的一首诗]]></title>
+    <link href="http://xmuxiaomo.github.io/2022/10/12/a-brief-talk-on-my-poem-Tears-of-Rupert/"/>
+    <id>http://xmuxiaomo.github.io/2022/10/12/a-brief-talk-on-my-poem-Tears-of-Rupert/</id>
+    <published>2022-10-12T10:49:44.000Z</published>
+    <updated>2022-10-13T10:03:30.520Z</updated>
+    <content type="html"><![CDATA[<p>昨日写了首诗：</p>
 <blockquote>
 <p>《鲁珀特之泪》</p>
 <p>我，自人类深处喷发<br>像火种，带着初生的热<br>和记忆重影的核<br>蝌蚪般，游弋冰暗</p>
@@ -44,12 +39,7 @@
 <p>我通常只写诗，不释诗，且曾言：“不要问我某行诗句的意思，或某一首诗有何言外之意，要说的都在诗里，诗写完，我的话就说完了。”今日因家人与诗友皆难解我诗中之意，略有反思，简谈至此。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>title: “简谈自己的一首诗”<br>permalink: a-brief-talk-on-my-poem-Tears-of-Rupert<br>date: 2022-10-12 18:49:44<br>tags: </p>
-<ul>
-<li>诗</li>
-<li>诗话<br>categories: 个人随笔</li>
-</ul>
-<p>昨日写了首诗：</p>
+    <![CDATA[<p>昨日写了首诗：</p>
 <blockquote>
 <p>《鲁珀特之泪》</p>
 <p>我，自人类深处喷发<br>像火种，带着初生的热<br>和记忆重影的核<br>蝌蚪般，游弋冰暗</p>
@@ -61,6 +51,12 @@
 <p>近日读吴兴华在1941-1952年间写给宋淇的书信，话语诚恳，友谊深切，引一句：“你批评我的序我完全悦服……朋友肯开诚布公的挑剔批判才称得起是朋友，若全随声附和，那我就会对你失望了”。凡间琦是解人，是爱诗的人，若其也难发觉我诗里隐含的意思，便促我反思，是否用字、表述不大准确，或是结构不清晰、过渡不自然。</p>]]>
     
     </summary>
+    
+      <category term="诗" scheme="http://xmuxiaomo.github.io/tags/%E8%AF%97/"/>
+    
+      <category term="诗话" scheme="http://xmuxiaomo.github.io/tags/%E8%AF%97%E8%AF%9D/"/>
+    
+      <category term="个人随笔" scheme="http://xmuxiaomo.github.io/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
