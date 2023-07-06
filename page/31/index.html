@@ -146,6 +146,99 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/">
+                Getting and Cleaning Data: Quiz 1
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/10/Getting-and-Cleaning-Data-Quiz-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="Question_1">Question 1</h2><p>The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here: </p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv</a></p>
+<p>and load the data into R. The code book, describing the variable names is here:</p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf</a></p>
+<p>How many properties are worth $1,000,000 or more?</p>
+<h3 id="R_script:">R script:</h3><figure class="highlight nimrod"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Question 1:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!file.exists(<span class="string">"data"</span>)) &#123;</span><br><span class="line">        dir.create(<span class="string">"data"</span>)</span><br><span class="line">&#125;</span><br><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"</span></span><br><span class="line">download.file(fileUrl, destfile = <span class="string">"./data/06hid.csv"</span>, <span class="keyword">method</span> = <span class="string">"curl"</span>)</span><br><span class="line">dateDownloaded &lt;- date()</span><br><span class="line"></span><br><span class="line"><span class="type">HD</span> &lt;- read.csv(<span class="string">"./data/06hid.csv"</span>)</span><br><span class="line">sum(!<span class="keyword">is</span>.na(<span class="type">HD</span>[<span class="type">HD</span>$<span class="type">VAL</span> &gt;= <span class="number">24</span>, <span class="number">37</span>]))</span><br></pre></td></tr></table></figure>
+<h3 id="Result:">Result:</h3><p><img src="http://qiniupicbed.qiniudn.com/upload/8b81bcebf6bf74304d07c7e0317a5965.png" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/"> #R </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/07/狂啃统计学/">
                 狂啃统计学
               </a>
@@ -937,94 +1030,11 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/22/《培根人生论》读书笔记/">
-                《培根人生论》读书笔记
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-22
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/读书笔记/">读书笔记</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/22/《培根人生论》读书笔记/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/22/《培根人生论》读书笔记/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="Chapter_2:_谈死亡">Chapter 2: 谈死亡</h3><p>就像曾经有位哲人说过的一样：死亡前受到的痛楚远远大于死亡本身。死亡前人们的意识都很迷糊，但因为周围的环境让人们对死亡感到十分恐惧，如身体逐渐冰冷、僵硬，耳边不时响起亲友的哭喊声等等。</p>
-<p>……</p>
-<p>当一个人认真地生活，认真地实现自己的价值，那么即使死亡之神突然来临，他也能泰然处之，因为对他来说，自己已经无怨无悔地生存了一次，死亡不过是生命结束的一个过程，他不过是把最后这个过程完成罢了。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/22/《培根人生论》读书笔记/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/page/30/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/32/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/30/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/32/">&raquo;</a>
   </div>
 
 
@@ -1055,7 +1065,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">370</span>
+              <span class="site-state-item-count">371</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
